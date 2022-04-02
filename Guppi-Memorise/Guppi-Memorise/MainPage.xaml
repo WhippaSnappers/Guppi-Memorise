@@ -7,7 +7,14 @@
     <StackLayout>
         <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
         <Grid>
-                
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
         </Grid>
     </StackLayout>
 </ContentPage>
