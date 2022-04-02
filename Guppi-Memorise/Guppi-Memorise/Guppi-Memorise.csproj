@@ -11,13 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\book-icon.png" />
     <None Remove="Assets\Exo 2.ttf" />
+    <None Remove="Assets\flash-cards-icon.png" />
+    <None Remove="Assets\profile-icon.png" />
     <None Remove="Assets\Russo One.ttf" />
+    <None Remove="Assets\stats-icon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\book-icon.png" />
     <EmbeddedResource Include="Assets\Exo 2.ttf" />
+    <EmbeddedResource Include="Assets\flash-cards-icon.png" />
+    <EmbeddedResource Include="Assets\profile-icon.png" />
     <EmbeddedResource Include="Assets\Russo One.ttf" />
+    <EmbeddedResource Include="Assets\stats-icon.png" />
   </ItemGroup>
 
   <ItemGroup>
