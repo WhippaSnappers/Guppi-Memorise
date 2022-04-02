@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+[assembly: ExportFont("Russo One.ttf", Alias = "Russo One")]
+
 namespace Guppi_Memorise
 {
     public partial class App : Application
