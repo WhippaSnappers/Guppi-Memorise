@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj": {}
+    "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj": {}
   },
   "projects": {
-    "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj": {
+    "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
+        "projectUniqueName": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
         "projectName": "Guppi-Memorise.iOS",
-        "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
-        "packagesPath": "C:\\Users\\pluxa\\.nuget\\packages\\",
-        "outputPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\obj\\",
+        "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
+        "packagesPath": "C:\\Users\\pcher\\.nuget\\packages\\",
+        "outputPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\pluxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pcher\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
-                "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
+              "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
+                "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
               }
             }
           }
@@ -61,17 +61,17 @@
         }
       }
     },
-    "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
+    "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj",
+        "projectUniqueName": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj",
         "projectName": "Guppi-Memorise",
-        "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj",
-        "packagesPath": "C:\\Users\\pluxa\\.nuget\\packages\\",
-        "outputPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\obj\\",
+        "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj",
+        "packagesPath": "C:\\Users\\pcher\\.nuget\\packages\\",
+        "outputPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pluxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pcher\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -122,7 +122,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -3172,20 +3172,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pluxa\\.nuget\\packages\\": {}
+    "C:\\Users\\pcher\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
+      "projectUniqueName": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
       "projectName": "Guppi-Memorise.Android",
-      "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
-      "packagesPath": "C:\\Users\\pluxa\\.nuget\\packages\\",
-      "outputPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\obj\\",
+      "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
+      "packagesPath": "C:\\Users\\pcher\\.nuget\\packages\\",
+      "outputPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\pluxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pcher\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3198,8 +3198,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
-              "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
+            "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
+              "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
             }
           }
         }
