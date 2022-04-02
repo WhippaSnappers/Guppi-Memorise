@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hOC+WjGxkaoizq/Y2dJ1kcJTGab3tDzVl8frI9E4/t3z+YDWB2OQhcTxxm/1qfdqfnFDL4g10vuDydj6mRWpXA==",
+  "dgSpecHash": "BJryu3kJQBYWTmwa+neMTJiuFYz7K7VUb/lCdm6olq0v94r4SzTfskUe7A5nzM71rsA8Zirnq5ly0C4Hos20jw==",
   "success": true,
-  "projectFilePath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
+  "projectFilePath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pcher\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\pcher\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\pcher\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\pluxa\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []
 }

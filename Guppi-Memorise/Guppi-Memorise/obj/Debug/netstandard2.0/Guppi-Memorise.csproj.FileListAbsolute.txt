@@ -13,3 +13,18 @@ H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstanda
 H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\refint\Guppi-Memorise.dll
 H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.pdb
 H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\ref\Guppi-Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.deps.json
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.pdb
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.csproj.AssemblyReference.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.GeneratedMSBuildEditorConfig.editorconfig
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\App.xaml.g.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.AssemblyInfoInputs.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.AssemblyInfo.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.csproj.CoreCompileInputs.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\XamlC.stamp
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\refint\Guppi-Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.pdb
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\ref\Guppi-Memorise.dll

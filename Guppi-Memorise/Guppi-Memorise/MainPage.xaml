@@ -5,7 +5,7 @@
              Title="Guppi Memorise">
 
     <StackLayout>
-        <Label Text="Добро пожаловать!" FontSize="Large" TextColor="#012545"/>
+        <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
         <Grid>
                 
         </Grid>
