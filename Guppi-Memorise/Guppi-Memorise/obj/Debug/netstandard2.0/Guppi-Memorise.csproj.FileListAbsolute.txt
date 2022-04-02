@@ -1,0 +1,15 @@
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.deps.json
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.dll
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\bin\Debug\netstandard2.0\Guppi-Memorise.pdb
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.csproj.AssemblyReference.cache
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.GeneratedMSBuildEditorConfig.editorconfig
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\App.xaml.g.cs
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.AssemblyInfoInputs.cache
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.AssemblyInfo.cs
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.csproj.CoreCompileInputs.cache
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\XamlC.stamp
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.dll
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\refint\Guppi-Memorise.dll
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.pdb
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\ref\Guppi-Memorise.dll
