@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.MainPage"
-             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise"
-             Title="Guppi Memorise">
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+    <NavigationPage.TitleView>
+        <Label Text="Guppi Memorise" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
 
     <StackLayout Padding="10">
         <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" Margin="0, 40"/>
@@ -26,7 +28,7 @@
                 </Frame.Background>
                 <StackLayout VerticalOptions="Center">
                     <Image Source="{local:ImageResource Guppi-Memorise.Assets.flash-cards-icon.png}"/>
-                    <Label Text="Флэш-карточки" FontSize="17" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
+                    <Label Text="Флэш-карточки" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
@@ -38,7 +40,7 @@
                 </Frame.Background>
                 <StackLayout VerticalOptions="Center">
                     <Image Source="{local:ImageResource Guppi-Memorise.Assets.book-icon.png}"/>
-                    <Label Text="Заучивание" FontSize="17" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
+                    <Label Text="Заучивание" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
@@ -50,7 +52,7 @@
                 </Frame.Background>
                 <StackLayout VerticalOptions="Center">
                     <Image Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon.png}"/>
-                    <Label Text="Статистика" FontSize="17" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
+                    <Label Text="Статистика" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
@@ -62,7 +64,7 @@
                 </Frame.Background>
                 <StackLayout VerticalOptions="Center">
                     <Image Source="{local:ImageResource Guppi-Memorise.Assets.profile-icon.png}"/>
-                    <Label Text="Профиль" FontSize="17" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
+                    <Label Text="Профиль" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2">
