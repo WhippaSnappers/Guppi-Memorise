@@ -6,8 +6,8 @@
 
     <StackLayout>
         <Label Text="Добро пожаловать!" FontSize="Large" TextColor="#012545"/>
-            <Grid>
+        <Grid>
                 
-            </Grid>
+        </Grid>
     </StackLayout>
 </ContentPage>
