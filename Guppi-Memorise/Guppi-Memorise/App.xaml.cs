@@ -11,8 +11,8 @@ namespace Guppi_Memorise
             InitializeComponent();
 
             var navbar = new NavigationPage(new MainPage());
-            navbar.BarBackgroundColor = Color.FromRgb(0, 205, 167);
-            navbar.BarTextColor = Color.FromRgb(1, 37, 69);
+            //navbar.BarBackgroundColor = Color.FromRgb(0, 205, 167);
+            //navbar.BarTextColor = Color.FromRgb(1, 37, 69);
             MainPage = navbar;
         }
 
