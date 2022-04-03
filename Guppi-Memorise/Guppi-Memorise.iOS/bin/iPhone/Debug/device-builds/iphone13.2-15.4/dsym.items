@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_AppExtensionDebugSymbolProperties Include="Guppi-Memorise.iOS.app">
+      <NativeExecutable>Guppi-Memorise.iOS</NativeExecutable>
+      <NoDSymUtil>false</NoDSymUtil>
+      <NoSymbolStrip>false</NoSymbolStrip>
+      <SymbolsList>\Users\paulcherevach\Library\Caches\Xamarin\mtbs\builds\GuppiMemorise.iOS\23a73ad7523921e5061daf4ce687e23a4a5d29e1ecbd9f65c951fb26e0077f5b\obj\iPhone\Debug\device-builds\iphone13.2-15.4\mtouch-symbols.list</SymbolsList>
+    </_AppExtensionDebugSymbolProperties>
+  </ItemGroup>
+</Project>
