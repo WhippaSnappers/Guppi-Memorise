@@ -8,7 +8,7 @@
     </NavigationPage.TitleView>
 
     <StackLayout Padding="10">
-        <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" Margin="0, 40"/>
+        <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" Margin="0, 25"/>
         <Grid HorizontalOptions="CenterAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -19,7 +19,7 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0">
+            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="flashCards">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>

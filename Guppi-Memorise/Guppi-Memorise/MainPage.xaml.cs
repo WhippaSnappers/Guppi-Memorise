@@ -14,6 +14,12 @@ namespace Guppi_Memorise
         public MainPage()
         {
             InitializeComponent();
+            var gr = new TapGestureRecognizer();
+            gr.NumberOfTapsRequired = 1;
+            gr.Tapped += (s, e) => {
+                Navigation.PushAsync(new FlashCardsPage());
+            };
+            flashCards.GestureRecognizers.Add(gr);
         }
     }
 }

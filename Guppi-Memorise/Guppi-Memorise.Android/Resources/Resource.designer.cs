@@ -19897,16 +19897,16 @@ namespace Guppi_Memorise.Droid
 			public const int collectionViewTheme = 2131690233;
 			
 			// aapt resource value: 0x7F0F00E8
-			public const int EmptyTheme = 2131689704;
+			public const int DrawerArrowStyle = 2131689704;
 			
 			// aapt resource value: 0x7F0F00E9
-			public const int MainTheme = 2131689705;
-			
-			// aapt resource value: 0x7F0F00EB
-			public const int MainThemeGuppi = 2131689707;
+			public const int EmptyTheme = 2131689705;
 			
 			// aapt resource value: 0x7F0F00EA
-			public const int MainTheme_Base = 2131689706;
+			public const int MainTheme = 2131689706;
+			
+			// aapt resource value: 0x7F0F00EB
+			public const int MainTheme_Base = 2131689707;
 			
 			// aapt resource value: 0x7F0F00EC
 			public const int MaterialAlertDialog_MaterialComponents = 2131689708;

@@ -127,10 +127,4 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Guppi-Memorise\Guppi-Memorise.csproj">
-      <Project>{059D8D44-CCA1-4B99-BA31-AEC264C5D805}</Project>
-      <Name>Guppi-Memorise</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
