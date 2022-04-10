@@ -1256,4 +1256,5 @@ E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Me
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\res\drawable\mybackarrow.png
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\res\values-v21\styles.xml
+H:\VisualStudio\Guppi-Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\res\values-v21\styles.xml
