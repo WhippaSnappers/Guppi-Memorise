@@ -26,7 +26,7 @@
                                 <GradientStop Color="#07957A" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        <Label Text="{Binding name}" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="{Binding name}" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                     </Frame>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>

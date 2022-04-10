@@ -1539,20 +1539,6 @@
         "build": {
           "buildTransitive/monoandroid50/Xamarin.Google.Guava.ListenableFuture.targets": {}
         }
-      },
-      "Guppi-Memorise/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
-        },
-        "compile": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        }
       }
     }
   },
@@ -3157,35 +3143,29 @@
         "xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
         "xamarin.google.guava.listenablefuture.nuspec"
       ]
-    },
-    "Guppi-Memorise/1.0.0": {
-      "type": "project",
-      "path": "../Guppi-Memorise/Guppi-Memorise.csproj",
-      "msbuildProject": "../Guppi-Memorise/Guppi-Memorise.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v12.0": [
-      "Guppi-Memorise >= 1.0.0",
       "Xamarin.Essentials >= 1.7.0",
       "Xamarin.Forms >= 5.0.0.2196"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pcher\\.nuget\\packages\\": {}
+    "C:\\Users\\pluxa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
+      "projectUniqueName": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
       "projectName": "Guppi-Memorise.Android",
-      "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
-      "packagesPath": "C:\\Users\\pcher\\.nuget\\packages\\",
-      "outputPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\obj\\",
+      "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\Guppi-Memorise.Android.csproj",
+      "packagesPath": "C:\\Users\\pluxa\\.nuget\\packages\\",
+      "outputPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\pcher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pluxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3197,11 +3177,7 @@
       },
       "frameworks": {
         "monoandroid12.0": {
-          "projectReferences": {
-            "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
-              "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },

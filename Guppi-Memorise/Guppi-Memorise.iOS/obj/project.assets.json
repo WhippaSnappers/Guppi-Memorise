@@ -150,20 +150,6 @@
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
         }
-      },
-      "Guppi-Memorise/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
-        },
-        "compile": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        }
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
@@ -314,20 +300,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "Guppi-Memorise/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
-        },
-        "compile": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
         }
       }
     },
@@ -480,20 +452,6 @@
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
         }
-      },
-      "Guppi-Memorise/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
-        },
-        "compile": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        }
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
@@ -644,20 +602,6 @@
         "build": {
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
-        }
-      },
-      "Guppi-Memorise/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
-        },
-        "compile": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Guppi-Memorise.dll": {}
         }
       }
     }
@@ -967,35 +911,29 @@
         "xamarin.forms.5.0.0.2196.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
-    },
-    "Guppi-Memorise/1.0.0": {
-      "type": "project",
-      "path": "../Guppi-Memorise/Guppi-Memorise.csproj",
-      "msbuildProject": "../Guppi-Memorise/Guppi-Memorise.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
-      "Guppi-Memorise >= 1.0.0",
       "Xamarin.Essentials >= 1.7.0",
       "Xamarin.Forms >= 5.0.0.2196"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pcher\\.nuget\\packages\\": {}
+    "C:\\Users\\pluxa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
+      "projectUniqueName": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
       "projectName": "Guppi-Memorise.iOS",
-      "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
-      "packagesPath": "C:\\Users\\pcher\\.nuget\\packages\\",
-      "outputPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\obj\\",
+      "projectPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\Guppi-Memorise.iOS.csproj",
+      "packagesPath": "C:\\Users\\pluxa\\.nuget\\packages\\",
+      "outputPath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\pcher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pluxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1007,11 +945,7 @@
       },
       "frameworks": {
         "xamarinios10": {
-          "projectReferences": {
-            "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj": {
-              "projectPath": "H:\\VisualStudio\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },

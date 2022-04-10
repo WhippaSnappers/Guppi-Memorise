@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Guppi_Memorise {
     public class Deck {
-        public string name;
+        public string name {
+            get; set;
+        }
         public ObservableCollection<Card> cards = new ObservableCollection<Card>();
 
         public Deck(string name = "Новая колода") {
