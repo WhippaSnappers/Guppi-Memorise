@@ -1,22 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.FlashCardsPage">
+             x:Class="Guppi_Memorise.FlashCardsPage"
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+    
     <NavigationPage.TitleView>
-        <Label Text="Мои колоды" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Мои колоды" VerticalOptions="Center" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+            <Image HorizontalOptions="EndAndExpand" Margin="0, 0, 15, 0" VerticalOptions="Center" HeightRequest="30"  Source="{local:ImageResource Guppi-Memorise.Assets.plusIcon.png}"/>
+        </StackLayout>
     </NavigationPage.TitleView>
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="flexElements" TargetType="Frame">
-                <Setter Property="FlexLayout.Basis" Value="45%"/>
+                <Setter Property="FlexLayout.Basis" Value="50%"/>
                 <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="Margin" Value="4, 10, 4, 0"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <FlexLayout x:Name="layout" Direction="Row" Wrap="Wrap" JustifyContent="SpaceEvenly" Padding="0, 15">
+        <FlexLayout x:Name="layout" Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignContent="Start" Padding="4, 0">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="5" Style="{StaticResource flexElements}">
@@ -26,7 +32,7 @@
                                 <GradientStop Color="#07957A" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        <Label Text="{Binding name}" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Text="{Binding name}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                     </Frame>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>

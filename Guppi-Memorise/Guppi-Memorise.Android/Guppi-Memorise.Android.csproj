@@ -86,6 +86,12 @@
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Guppi-Memorise\Guppi-Memorise.csproj">
+      <Project>{9a58432c-afaf-4450-bedf-364b18068db8}</Project>
+      <Name>Guppi-Memorise</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

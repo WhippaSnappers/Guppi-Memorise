@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "aaKMVa3FWzy1YCYVEo4IFDk3z83/rY5QhyytnAEcOWAN0hDUGgdj7gkS6isgkVzhE9gs4nPzFInQcNmGSCZV/g==",
+  "success": true,
+  "projectFilePath": "E:\\разные разности\\Projects\\Guppi Memorise\\Guppi-Memorise\\Guppi-Memorise\\Guppi-Memorise.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pluxa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\pluxa\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

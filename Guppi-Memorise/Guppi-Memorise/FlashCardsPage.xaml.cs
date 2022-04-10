@@ -19,7 +19,7 @@ namespace Guppi_Memorise {
         public FlashCardsPage() {
             InitializeComponent();
             decks = new ObservableCollection<Deck>() {
-                new Deck("new deck"), new Deck("new deck 2")
+                new Deck("new deck"), new Deck("new deck 2"), new Deck()
             };
             BindableLayout.SetItemsSource(layout, decks);
             Console.WriteLine("11");
