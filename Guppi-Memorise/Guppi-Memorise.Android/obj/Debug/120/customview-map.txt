@@ -14,7 +14,6 @@ background;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
 cache-path;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\120\res\values\colors.xml
-color;obj\Debug\120\res\values-v21\colors.xml
 com.google.android.material.appbar.AppBarLayout;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\layout\flyoutcontent.xml
 com.google.android.material.appbar.AppBarLayout;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
 com.google.android.material.appbar.AppBarLayout;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
@@ -38,7 +37,6 @@ resources;E:\разные разности\Projects\Guppi Memorise\Guppi-Memoris
 resources;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
 resources;obj\Debug\120\res\values\colors.xml
 resources;obj\Debug\120\res\values\styles.xml
-resources;obj\Debug\120\res\values-v21\colors.xml
 resources;obj\Debug\120\res\values-v21\styles.xml
 set;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
 set;E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromright.xml

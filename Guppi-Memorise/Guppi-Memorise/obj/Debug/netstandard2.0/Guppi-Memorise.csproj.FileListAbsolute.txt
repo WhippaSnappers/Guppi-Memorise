@@ -28,3 +28,4 @@ E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Me
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\refint\Guppi-Memorise.dll
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi-Memorise.pdb
 E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\ref\Guppi-Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\FlashCardsPage.xaml.g.cs

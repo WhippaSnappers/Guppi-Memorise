@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guppi-Memorise.Android", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guppi-Memorise.iOS", "Guppi-Memorise\Guppi-Memorise.iOS\Guppi-Memorise.iOS.csproj", "{2F5801CD-55FD-4076-9D6F-72A2FC472144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guppi-Memorise", "Guppi-Memorise\Guppi-Memorise\Guppi-Memorise.csproj", "{9A58432C-AFAF-4450-BEDF-364B18068DB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Guppi-Memorise", "Guppi-Memorise\Guppi-Memorise\Guppi-Memorise.csproj", "{9A58432C-AFAF-4450-BEDF-364B18068DB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

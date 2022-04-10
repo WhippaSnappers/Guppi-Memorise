@@ -1,0 +1,11 @@
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.csproj.AssemblyReference.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.GeneratedMSBuildEditorConfig.editorconfig
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\App.xaml.g.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\FlashCardsPage.xaml.g.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.AssemblyInfoInputs.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.AssemblyInfo.cs
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.csproj.CoreCompileInputs.cache
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\refint\Guppi_Memorise.dll
+E:\разные разности\Projects\Guppi Memorise\Guppi-Memorise\Guppi-Memorise\obj\Debug\netstandard2.0\Guppi_Memorise.pdb
