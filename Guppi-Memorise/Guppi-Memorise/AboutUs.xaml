@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.AboutUs">
+    <NavigationPage.TitleView>
+        <Label x:Name="aboutUsLabel" Text="О нас" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <Label Margin="0, 0, 0, 10" FontFamily="Russo One" FontSize="40" TextColor="#012545" HorizontalOptions="CenterAndExpand">Разработчики:</Label>
+        <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Арсений Коневец</Label>
+        <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Павел Черевач</Label>
+        <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Владимир Гребенников</Label>
+        <Label Margin="20" FontFamily="Russo One" FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand">КоЧеГреб ©</Label>
+        <Label x:Name="easterEgg" Opacity="0" FontFamily="Lobster" FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand">А э ы ы каабука ы ы а вёб</Label>
+    </StackLayout>
+</ContentPage>
