@@ -16625,7 +16625,7 @@ namespace Guppi_Memorise.Droid
 			public const int mtrl_tabs_default_indicator = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int myBackArrow = 2131165311;
+			public const int mybackarrow = 2131165311;
 			
 			// aapt resource value: 0x7F070080
 			public const int navigation_empty_icon = 2131165312;
