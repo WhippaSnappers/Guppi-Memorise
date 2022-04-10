@@ -14,6 +14,20 @@ namespace Guppi_Memorise
         public AboutApp()
         {
             InitializeComponent();
+            //InitText();
+        }
+
+        private void InitText()
+        {
+            string txt = "Приложение для заучивания текстов и терминов. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            var tmpl = "<html>" +
+                "<body style=\"text-align: justify; font-family: Exo;\">" +
+                String.Format("<p>{0}</p>", txt) +
+                "</body>" +
+                "</html>";
+            var src = new HtmlWebViewSource();
+            src.Html = tmpl;
+            //wv.Source = src;
         }
     }
 }
