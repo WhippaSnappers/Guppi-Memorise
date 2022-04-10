@@ -10,10 +10,17 @@ namespace Guppi_Memorise
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             //var aboutapp = new NavigationPage(new AboutApp());
             //MainPage = aboutapp;
             var navbar = new NavigationPage(new MainPage());
             MainPage = navbar;
+=======
+            var aboutapp = new NavigationPage(new MainPage());
+            MainPage = aboutapp;
+            //var navbar = new NavigationPage(new MainPage());
+            //MainPage = navbar;
+>>>>>>> a2391196a1637a1adbac78d5a7d4a912bd500b6c
             //navbar.BarBackgroundColor = Color.FromRgb(0, 205, 167);
             //navbar.BarTextColor = Color.FromRgb(1, 37, 69);
         }
