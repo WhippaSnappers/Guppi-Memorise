@@ -14,12 +14,33 @@ namespace Guppi_Memorise
         public MainPage()
         {
             InitializeComponent();
-            var gr = new TapGestureRecognizer();
-            gr.NumberOfTapsRequired = 1;
-            gr.Tapped += (s, e) => {
+            InitializeGestureRecognisers();
+        }
+
+        private void InitializeGestureRecognisers()
+        {
+            // Flashcards
+            var gr1 = new TapGestureRecognizer();
+            gr1.NumberOfTapsRequired = 1;
+            gr1.Tapped += (s, e) => {
                 Navigation.PushAsync(new FlashCardsPage());
             };
-            flashCards.GestureRecognizers.Add(gr);
+            flashCards.GestureRecognizers.Add(gr1);
+            // About app
+            var gr2 = new TapGestureRecognizer();
+            gr2.NumberOfTapsRequired = 1;
+            gr2.Tapped += (s, e) => {
+                Navigation.PushAsync(new AboutApp());
+            };
+            aboutApp.GestureRecognizers.Add(gr2);
+            // About us
+            var gr3 = new TapGestureRecognizer();
+            gr3.NumberOfTapsRequired = 1;
+            gr3.Tapped += (s, e) =>
+            {
+                Navigation.PushAsync(new AboutUs());
+            };
+            aboutUs.GestureRecognizers.Add(gr3);
         }
     }
 }

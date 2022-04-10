@@ -67,7 +67,7 @@
                     <Label Text="Профиль" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2">
+            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2" x:Name="aboutApp">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#08D283" Offset="0.0"/>
@@ -77,6 +77,6 @@
                 <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             </Frame>
         </Grid>
-        <Label Margin="0, 10" Text="О нас" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
+        <Label Margin="0, 10" Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
     </StackLayout>
 </ContentPage>

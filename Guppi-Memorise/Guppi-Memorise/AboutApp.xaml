@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.AboutApp"
-             xmlns:local="clr-namespace:Guppi_Memorise">
+             x:Class="Guppi_Memorise.AboutApp">
     <NavigationPage.TitleView>
         <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
     </NavigationPage.TitleView>
