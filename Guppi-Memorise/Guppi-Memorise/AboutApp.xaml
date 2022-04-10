@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.AboutApp"
+             xmlns:local="clr-namespace:Guppi_Memorise">
+    <NavigationPage.TitleView>
+        <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
+    <StackLayout Padding="10" VerticalOptions="Start">
+        <Label FontSize="35" Padding="0, 40" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
+        <Label FontSize="25" Padding="0, 0, 0, 40" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">Приложение для заучивания текстов и терминов. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Label>
+        <Label FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">Версия: Alpha 1.0</Label>
+        <Label FontSize="30" Padding="0, 10" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">2022 год</Label>
+    </StackLayout>
+</ContentPage>
