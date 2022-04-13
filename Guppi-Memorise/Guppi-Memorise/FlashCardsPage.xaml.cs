@@ -11,18 +11,24 @@ using Xamarin.Forms.Xaml;
 namespace Guppi_Memorise {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 
-
     public partial class FlashCardsPage : ContentPage {
 
-        public ObservableCollection<Deck> decks;
+        public static ObservableCollection<Deck> decks;
 
         public FlashCardsPage() {
             InitializeComponent();
-            decks = new ObservableCollection<Deck>() {
-                new Deck("new deck"), new Deck("new deck 2"), new Deck()
-            };
+
+            decks = new ObservableCollection<Deck>();
             BindableLayout.SetItemsSource(layout, decks);
-            Console.WriteLine("11");
+        }
+
+        private void DeckTapped(object sender, EventArgs e) {
+            Deck tappedDeck = decks.Where(i => i.id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
+            Navigation.PushAsync(new DeckPage(ref tappedDeck));
+        }
+
+        private void AddDeck(object sender, EventArgs e) {
+            decks.Add(new Deck());
         }
     }
 }
