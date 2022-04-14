@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.FlashCardsPage"
-             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise"
+             xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures">
     
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
@@ -29,18 +30,18 @@
         <FlexLayout x:Name="layout" Direction="Row" Wrap="Wrap" JustifyContent="Start" AlignContent="Start" Padding="4, 0">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding id}">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="DeckTapped" NumberOfTapsRequired="1"/>
-                        </Frame.GestureRecognizers>
+                    <mr:Frame CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding id}" LongPressed="Frame_LongPressed" Tapped="DeckTapped">
                         <Frame.Background>
                             <LinearGradientBrush EndPoint="0,1">
                                 <GradientStop Color="#00CCAD" Offset="0.0"/>
                                 <GradientStop Color="#07957A" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        <Label Text="{Binding name}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                    </Frame>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding name}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                            <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" MaxLength="20" TextColor="#012545" Text="{Binding name}" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed"/>
+                        </StackLayout>
+                    </mr:Frame>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </FlexLayout>

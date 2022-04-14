@@ -30,9 +30,12 @@
                                     <GradientStop Color="#07957A" Offset="1.0"/>
                                 </LinearGradientBrush>
                             </Frame.Background>
-                            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-                            </ScrollView>
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                                </ScrollView>
+                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding title}" MaxLength="20" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges"/>
+                            </StackLayout>
                         </Frame>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
