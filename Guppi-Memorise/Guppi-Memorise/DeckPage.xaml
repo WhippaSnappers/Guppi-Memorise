@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.DeckPage"
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="title" VerticalOptions="Center" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+            <Image HorizontalOptions="EndAndExpand" Margin="0, 0, 15, 0" VerticalOptions="Center" HeightRequest="30"  Source="{local:ImageResource Guppi-Memorise.Assets.plusIcon.png}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddCard" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="layout" Padding="10, 0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding id}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CardTapped" NumberOfTapsRequired="1"/>
+                            </Frame.GestureRecognizers>
+                            <Frame.Background>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Color="#00CCAD" Offset="0.0"/>
+                                    <GradientStop Color="#07957A" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                                </ScrollView>
+                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding title}" MaxLength="20" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
