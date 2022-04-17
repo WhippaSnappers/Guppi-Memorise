@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.ProfilePage">
+             x:Class="Guppi_Memorise.ProfilePage"
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
     
     <NavigationPage.TitleView>
-            <Label Text="Профиль" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+            <Label Text="РџСЂРѕС„РёР»СЊ" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
-    
-    <StackLayout Padding="10" HorizontalOptions="Start" VerticalOptions="Start"> //Расположение хромает
-        <Entry Placeholder="Никнейм"  TextChanged="loginEntry_TextChanged" HorizontalOptions="Center" VerticalOptions="Start"/>
-        
-        <Image HorizontalOptions="Center" Margin="0, 0, 15, 0" VerticalOptions="Start" HeightRequest="105"  Source="{local:ImageResource Guppi-Memorise.Assets.avatar.png}">
+
+    <StackLayout Padding="10" HorizontalOptions="Start" VerticalOptions="Start">
+        <Entry Placeholder="РќРёРєРЅРµР№Рј" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+        <Image HorizontalOptions="Center" Margin="0, 0, 15, 0" VerticalOptions="Start" WidthRequest="105" HeightRequest="105" Source="{local:ImageResource Guppi-Memorise.Assets.avatar.png}">
         </Image>
     </StackLayout>
 </ContentPage>
