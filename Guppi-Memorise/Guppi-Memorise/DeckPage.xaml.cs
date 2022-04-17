@@ -38,6 +38,11 @@ namespace Guppi_Memorise {
                 deck.cards.Add(newCard);
                 var card = layout.Children.Where(i => Int32.Parse(i.ClassId) == newCard.id).FirstOrDefault();
                 var slChildren = ((card as Frame).Content as StackLayout).Children;
+
+                if (deck.cards.Count > 1) {
+                    selfControl.IsEnabled = true;
+                }
+
                 RenameCardToggle(slChildren);
             }
         }
@@ -51,6 +56,9 @@ namespace Guppi_Memorise {
                     switch (res) {
                         case "Удалить":
                             deck.cards.Remove(tappedCard);
+                            if (deck.cards.Count < 2) {
+                                selfControl.IsEnabled = false;
+                            }
                             break;
                         case "Переименовать":
                             isRenaming = true;

@@ -13,7 +13,6 @@ namespace Guppi_Memorise {
     public partial class SelfControlPage : ContentPage {
 
         private Deck deck;
-        private Card selectedCard;
         private int selectedIndex;
 
         public SelfControlPage(Deck deck) {
@@ -21,8 +20,7 @@ namespace Guppi_Memorise {
             ShuffleDeck(ref this.deck);
             InitializeComponent();
             selectedIndex = 0;
-            selectedCard = deck.cards[selectedIndex];
-            frame.BindingContext = selectedCard;
+            setCard(0);
         }
 
         private void ShuffleDeck(ref Deck deck) {
@@ -37,13 +35,15 @@ namespace Guppi_Memorise {
 
         private void Button_Clicked(object sender, EventArgs e) {
             if (selectedIndex > 0) {
-                selectedCard = deck.cards[--selectedIndex];
+                setCard(--selectedIndex);
+                toggleBtns();
             }
         }
 
         private void Button_Clicked_1(object sender, EventArgs e) {
-            if (selectedIndex < deck.cards.Count) {
-                selectedCard = deck.cards[++selectedIndex];
+            if (selectedIndex < deck.cards.Count - 1) {
+                setCard(++selectedIndex);
+                toggleBtns();
             }
         }
 
@@ -51,6 +51,26 @@ namespace Guppi_Memorise {
             var slChildren = ((sender as Frame).Content as StackLayout).Children;
             slChildren[0].IsVisible = !slChildren[0].IsVisible;
             slChildren[1].IsVisible = !slChildren[1].IsVisible;
+        }
+
+        private void setCard(int index) {
+            ((frame.Content as StackLayout).Children[0] as Label).Text = deck.cards[index].title;
+            (((frame.Content as StackLayout).Children[1] as ScrollView).Content as Label).Text = deck.cards[index].text;
+        }
+
+        private void toggleBtns() {
+            if (selectedIndex == 0) {
+                prev.IsEnabled = false;
+            }
+            if (selectedIndex == deck.cards.Count - 1) {
+                next.IsEnabled = false;
+            }
+            if (selectedIndex > 0) {
+                prev.IsEnabled = true;
+            }
+            if (selectedIndex < deck.cards.Count - 1) {
+                next.IsEnabled = true;
+            }
         }
     }
 }

@@ -5,6 +5,34 @@
              xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise"
              xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures">
 
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="DisablingButtons">
+                        <VisualState Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#777"/>
+                                <Setter Property="Background" Value="#aaa"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#012545"/>
+                                <Setter Property="Background">
+                                    <LinearGradientBrush EndPoint="0,1">
+                                        <GradientStop Color="#08D283" Offset="0.0"/>
+                                        <GradientStop Color="#1C9D62" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label x:Name="title" VerticalOptions="Center" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
@@ -17,9 +45,9 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <StackLayout Padding="15, 0">
+        <StackLayout>
             <ScrollView>
-                <StackLayout x:Name="layout">
+                <StackLayout x:Name="layout" Padding="15, 0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding id}" Tapped="CardTapped" LongPressed="Frame_LongPressed">
@@ -44,14 +72,7 @@
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
-            <Button Text="Самопроверка" CornerRadius="5" FontFamily="Russo One" FontSize="20" TextColor="#012545" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#08D283" Offset="0.0"/>
-                        <GradientStop Color="#1C9D62" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+            <Button x:Name="selfControl" IsEnabled="False" Text="Самопроверка" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" Margin="15" HeightRequest="60"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
