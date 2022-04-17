@@ -9,7 +9,7 @@ namespace Guppi_Memorise
         public App()
         {
             InitializeComponent();
-            var navbar = new NavigationPage(new MainPage());
+            var navbar = new NavigationPage(new ProfilePage());
             MainPage = navbar;
         }
 
