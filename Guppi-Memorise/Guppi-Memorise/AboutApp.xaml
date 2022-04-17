@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.AboutApp">
     <NavigationPage.TitleView>
-        <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+        <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
     <StackLayout Padding="10" VerticalOptions="Start">
         <Label FontSize="35" Margin="0, 40" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
