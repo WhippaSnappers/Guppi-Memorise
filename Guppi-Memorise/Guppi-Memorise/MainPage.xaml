@@ -4,7 +4,7 @@
              x:Class="Guppi_Memorise.MainPage"
              xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
     <NavigationPage.TitleView>
-        <Label Text="Guppi Memorise" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+        <Label Text="Guppi Memorise" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
     <StackLayout Padding="10">
@@ -19,7 +19,7 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="flashCards">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="flashCards">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -31,7 +31,7 @@
                     <Label Text="Флэш-карточки" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -43,7 +43,7 @@
                     <Label Text="Заучивание" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -55,7 +55,7 @@
                     <Label Text="Статистика" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -67,7 +67,7 @@
                     <Label Text="Профиль" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2" x:Name="aboutApp">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2" x:Name="aboutApp">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#08D283" Offset="0.0"/>
@@ -77,6 +77,6 @@
                 <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             </Frame>
         </Grid>
-        <Label Margin="0, 10" Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
+        <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
     </StackLayout>
 </ContentPage>
