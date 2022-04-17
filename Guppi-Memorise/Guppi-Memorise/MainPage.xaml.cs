@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Reflection;
+using SQLite;
 
 namespace Guppi_Memorise
 {
