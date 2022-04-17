@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.SelfControlPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Самопроверка" x:Name="title" VerticalOptions="Center" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid ColumnSpacing="10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame Grid.ColumnSpan="2" Grid.Row="0" x:Name="frame" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CardTapped" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#00CCAD" Offset="0.0"/>
+                        <GradientStop Color="#07957A" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
+                        <Label Text="{Binding text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+            <Button Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" TextColor="#012545" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#08D283" Offset="0.0"/>
+                        <GradientStop Color="#1C9D62" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" Text="Вперед" CornerRadius="5" FontFamily="Russo One" FontSize="20" TextColor="#012545" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked_1">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#08D283" Offset="0.0"/>
+                        <GradientStop Color="#1C9D62" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

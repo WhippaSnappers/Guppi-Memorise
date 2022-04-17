@@ -14,6 +14,7 @@ namespace Guppi_Memorise {
 
         private Deck deck;
         private bool isRenaming = false;
+        private bool isClicked = false;
 
         public DeckPage(ref Deck deck) {
             InitializeComponent();
@@ -90,6 +91,14 @@ namespace Guppi_Memorise {
             var slChildren = (((sender as Editor).Parent as ScrollView).Parent as StackLayout).Children;
             ChangeTextToggle(slChildren);
             isRenaming = false;
+        }
+
+        private void Button_Clicked(object sender, EventArgs e) {
+            if (!isClicked) {
+                isClicked = true;
+                Navigation.PushAsync(new SelfControlPage(deck));
+                isClicked = false;
+            }
         }
     }
 }
