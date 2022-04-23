@@ -104,7 +104,7 @@ namespace Guppi_Memorise {
         private void Button_Clicked(object sender, EventArgs e) {
             if (!isClicked) {
                 isClicked = true;
-                Navigation.PushAsync(new SelfControlPage(deck));
+                Navigation.PushAsync(new SelfControlPage(deck.cards));
                 isClicked = false;
             }
         }

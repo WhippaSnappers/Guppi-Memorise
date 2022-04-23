@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.SelfControlPage">
+             x:Class="Guppi_Memorise.SelfControlPage"
+             xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures">
 
     <ContentPage.Resources>
         <Style TargetType="Button">
@@ -45,10 +46,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Frame Grid.ColumnSpan="2" Grid.Row="0" x:Name="frame" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="CardTapped" NumberOfTapsRequired="1"/>
-                </Frame.GestureRecognizers>
+            <mr:Frame Grid.ColumnSpan="2" Grid.Row="0" x:Name="frame" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Tapped="CardTapped">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -57,12 +55,12 @@
                 </Frame.Background>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
+                    <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false">
                         <Label FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </ScrollView>
                 </StackLayout>
-            </Frame>
-            <Button x:Name="prev" Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" HeightRequest="60"/>
+            </mr:Frame>
+            <Button x:Name="prev" IsEnabled="False" Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" HeightRequest="60"/>
             <Button x:Name="next" Grid.Row="1" Grid.Column="1" Text="Вперед" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked_1" HeightRequest="60"/>
         </Grid>
     </ContentPage.Content>
