@@ -3,15 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.SelfControlPage">
 
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="DisablingButtons">
+                        <VisualState Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#777"/>
+                                <Setter Property="Background" Value="#aaa"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#012545"/>
+                                <Setter Property="Background">
+                                    <LinearGradientBrush EndPoint="0,1">
+                                        <GradientStop Color="#08D283" Offset="0.0"/>
+                                        <GradientStop Color="#1C9D62" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <NavigationPage.TitleView>
         <Label Text="Самопроверка" x:Name="title" VerticalOptions="Center" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <Grid ColumnSpacing="10" RowSpacing="10">
+        <Grid ColumnSpacing="10" RowSpacing="10" Padding="15">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -28,28 +56,14 @@
                     </LinearGradientBrush>
                 </Frame.Background>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
-                        <Label Text="{Binding text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        <Label FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </ScrollView>
                 </StackLayout>
             </Frame>
-            <Button Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" TextColor="#012545" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#08D283" Offset="0.0"/>
-                        <GradientStop Color="#1C9D62" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Grid.Row="1" Grid.Column="1" Text="Вперед" CornerRadius="5" FontFamily="Russo One" FontSize="20" TextColor="#012545" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked_1">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#08D283" Offset="0.0"/>
-                        <GradientStop Color="#1C9D62" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+            <Button x:Name="prev" Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" HeightRequest="60"/>
+            <Button x:Name="next" Grid.Row="1" Grid.Column="1" Text="Вперед" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked_1" HeightRequest="60"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
