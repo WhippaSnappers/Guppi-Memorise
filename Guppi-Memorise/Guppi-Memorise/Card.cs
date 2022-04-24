@@ -7,6 +7,17 @@ namespace Guppi_Memorise {
     public class Card : BindableObject {
         public static readonly BindableProperty TitleProperty = BindableProperty.Create("title", typeof(string), typeof(Card), "Новая карточка", BindingMode.TwoWay);
         public static readonly BindableProperty TextProperty = BindableProperty.Create("text", typeof(string), typeof(Card), "Текст на карточке", BindingMode.TwoWay);
+        public static readonly BindableProperty RatingProperty = BindableProperty.Create("rating", typeof(int), typeof(Card), 0, BindingMode.TwoWay);
+
+        public int rating {
+            get {
+                return (int)GetValue(RatingProperty);
+            }
+            set {
+                SetValue(RatingProperty, value);
+            }
+        }
+
         public string title { 
             get {
                 return (string)GetValue(TitleProperty);

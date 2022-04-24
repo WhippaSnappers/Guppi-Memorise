@@ -1,34 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.SelfControlPage">
+             x:Class="Guppi_Memorise.SelfControlPage"
+             xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures">
 
     <ContentPage.Resources>
-        <Style TargetType="Button">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="DisablingButtons">
-                        <VisualState Name="Disabled">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor" Value="#777"/>
-                                <Setter Property="Background" Value="#aaa"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor" Value="#012545"/>
-                                <Setter Property="Background">
-                                    <LinearGradientBrush EndPoint="0,1">
-                                        <GradientStop Color="#08D283" Offset="0.0"/>
-                                        <GradientStop Color="#1C9D62" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="Default">
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="Russo One"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="DisablingButtons">
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="#777"/>
+                                    <Setter Property="Background" Value="#aaa"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="#012545"/>
+                                    <Setter Property="Background">
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="#08D283" Offset="0.0"/>
+                                            <GradientStop Color="#1C9D62" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="ratingMinus">
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="Russo One"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="DisablingButtons">
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="#777"/>
+                                    <Setter Property="Background" Value="#aaa"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="white"/>
+                                    <Setter Property="Background">
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="#FF0000" Offset="0.0"/>
+                                            <GradientStop Color="#970000" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="ratingPlus">
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="Russo One"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="DisablingButtons">
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="#777"/>
+                                    <Setter Property="Background" Value="#aaa"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="white"/>
+                                    <Setter Property="Background">
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="#00D811" Offset="0.0"/>
+                                            <GradientStop Color="#00B20E" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <NavigationPage.TitleView>
@@ -38,17 +108,17 @@
     <ContentPage.Content>
         <Grid ColumnSpacing="10" RowSpacing="10" Padding="15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Frame Grid.ColumnSpan="2" Grid.Row="0" x:Name="frame" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="CardTapped" NumberOfTapsRequired="1"/>
-                </Frame.GestureRecognizers>
+            <Button Style="{StaticResource ratingMinus}" x:Name="ratingMinus" Grid.Row="0" Grid.Column="0" Text="Не помню" Clicked="RatingMinus"/>
+            <Button Style="{StaticResource ratingPlus}" x:Name="ratingPlus" Grid.Row="0" Grid.Column="1" Text="Помню" Clicked="RatingPlus"/>
+            <mr:Frame Grid.ColumnSpan="2" Grid.Row="1" x:Name="frame" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Tapped="CardTapped">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -57,13 +127,13 @@
                 </Frame.Background>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
+                    <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false">
                         <Label FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </ScrollView>
                 </StackLayout>
-            </Frame>
-            <Button x:Name="prev" Grid.Row="1" Grid.Column="0" Text="Назад" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" HeightRequest="60"/>
-            <Button x:Name="next" Grid.Row="1" Grid.Column="1" Text="Вперед" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Clicked="Button_Clicked_1" HeightRequest="60"/>
+            </mr:Frame>
+            <Button Style="{StaticResource Default}" x:Name="prev" IsEnabled="False" Grid.Row="2" Grid.Column="0" Text="Назад" Clicked="Button_Clicked"/>
+            <Button Style="{StaticResource Default}" x:Name="next" Grid.Row="2" Grid.Column="1" Text="Вперед" Clicked="Button_Clicked_1"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

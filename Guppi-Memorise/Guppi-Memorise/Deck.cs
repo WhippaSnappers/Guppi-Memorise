@@ -16,7 +16,7 @@ namespace Guppi_Memorise {
             }
         }
 
-        public ObservableCollection<Card> cards = new ObservableCollection<Card>();
+        public ObservableCollection<Card> cards;
 
         public int id {
             get; private set;
@@ -24,6 +24,7 @@ namespace Guppi_Memorise {
         private static int count = 0; 
 
         public Deck(string name = "Новая колода") {
+            cards = new ObservableCollection<Card>();
             id = count++;
             this.name = name;
         }
