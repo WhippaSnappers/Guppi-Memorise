@@ -14,10 +14,13 @@ namespace Guppi_Memorise {
     public partial class SelfControlPage : ContentPage {
 
         private Card[] cards;
+        private bool[] cardsRated;
         private int selectedIndex;
 
         public SelfControlPage(ObservableCollection<Card> cards) {
             this.cards = new Card[cards.Count];
+            cardsRated = new bool[cards.Count];
+            
             cards.CopyTo(this.cards, 0);
             ShuffleDeck(this.cards);
             InitializeComponent();
@@ -56,8 +59,12 @@ namespace Guppi_Memorise {
         }
 
         private void setCard(int index) {
-            ((frame.Content as StackLayout).Children[0] as Label).Text = cards[index].title;
-            (((frame.Content as StackLayout).Children[1] as ScrollView).Content as Label).Text = cards[index].text;
+            var slChildren = (frame.Content as StackLayout).Children;
+            (slChildren[0] as Label).Text = cards[index].title;
+            ((slChildren[1] as ScrollView).Content as Label).Text = cards[index].text;
+            if (!cardsRated[index]) {
+                toggleRatingBtns(true);
+            }
         }
 
         private void toggleBtns() {
@@ -73,6 +80,23 @@ namespace Guppi_Memorise {
             if (selectedIndex < cards.Length - 1) {
                 next.IsEnabled = true;
             }
+        }
+
+        private void RatingPlus(object sender, EventArgs e) {
+            cards[selectedIndex].rating++;
+            toggleRatingBtns(false);
+            cardsRated[selectedIndex] = true;
+        }
+
+        private void RatingMinus(object sender, EventArgs e) {
+            cards[selectedIndex].rating--;
+            toggleRatingBtns(false);
+            cardsRated[selectedIndex] = true;
+        }
+
+        private void toggleRatingBtns(bool flag) {
+            ratingMinus.IsEnabled = flag;
+            ratingPlus.IsEnabled = flag;
         }
     }
 }
