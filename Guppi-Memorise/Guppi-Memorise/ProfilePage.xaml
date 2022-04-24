@@ -5,6 +5,15 @@
              xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
     
     <NavigationPage.TitleView>
+<<<<<<< HEAD
+            <Label Text="Профиль" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
+    
+    <StackLayout Padding="10" HorizontalOptions="Start" VerticalOptions="Start"> 
+        <Entry Placeholder="Никнейм" HorizontalOptions="Center" VerticalOptions="Start"/>
+        
+        <Image HorizontalOptions="Center" Margin="0, 0, 15, 0" VerticalOptions="Start" HeightRequest="105"  Source="{local:ImageResource Guppi-Memorise.Assets.avatar.png}">
+=======
             <Label Text="Профиль" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
@@ -12,6 +21,7 @@
         <Entry Placeholder="Никнейм" HorizontalOptions="Center" VerticalOptions="Start"/>
 
         <Image HorizontalOptions="Center" Margin="0, 0, 15, 0" VerticalOptions="Start" WidthRequest="105" HeightRequest="105" Source="{local:ImageResource Guppi-Memorise.Assets.avatar.png}">
+>>>>>>> 30ee775576b14421d56768290732c00566d6c463
         </Image>
     </StackLayout>
 </ContentPage>
