@@ -42,6 +42,22 @@ namespace Guppi_Memorise
                 Navigation.PushAsync(new AboutUs());
             };
             aboutUs.GestureRecognizers.Add(gr3);
+            // Profile
+            var gr4 = new TapGestureRecognizer();
+            gr4.NumberOfTapsRequired = 1;
+            gr4.Tapped += (s, e) =>
+            {
+                Navigation.PushAsync(new ProfilePage());
+            };
+            profile.GestureRecognizers.Add(gr4);
+            // Statistics
+            var gr5 = new TapGestureRecognizer();
+            gr5.NumberOfTapsRequired = 1;
+            gr5.Tapped += (s, e) =>
+            {
+                Navigation.PushAsync(new StatisticsPage());
+            };
+            statistics.GestureRecognizers.Add(gr5);
         }
     }
 }
