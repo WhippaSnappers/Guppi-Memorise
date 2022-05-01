@@ -14,11 +14,11 @@ namespace Guppi_Memorise {
 
         public MemorisingStartPage() {
             InitializeComponent();
-            editor.Text = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n \nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.";
+            editor.Text = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.";
         }
 
-        private void Editor_Completed(object sender, EventArgs e) {
-            
+        private void Button_Clicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new MemorisingPage());
         }
     }
 }

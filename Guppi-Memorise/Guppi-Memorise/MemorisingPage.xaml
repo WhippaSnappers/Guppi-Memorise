@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.MemorisingPage"
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Russo One"/>
+                <Setter Property="FontSize" Value="23"/>
+                <Setter Property="TextColor" Value="#012545"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="title" Text="Уровень 1 / 6" VerticalOptions="Center" FontSize="20"/>
+            <Image HorizontalOptions="EndAndExpand" Margin="0, 0, 15, 0" VerticalOptions="Center" HeightRequest="30"  Source="{local:ImageResource Guppi-Memorise.Assets.infoIcon.png}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OpenInfo" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid Padding="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="11*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Ошибок: 0" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
+            <Label Text="Верно: 0 / 2" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
+            <StackLayout HorizontalOptions="End" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center">
+                <Image Source="{local:ImageResource Guppi-Memorise.Assets.againIcon.png}" HeightRequest="40"/>
+                <Label Text="Нанова" FontSize="13" VerticalOptions="Center"/>
+            </StackLayout>
+            <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="2" Grid.Row="2">
+                <ScrollView>
+                    <StackLayout>
+                        <Label Text="Я помню чудное мгновенье:" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
+                        <Label Text="Передо мной явилась ты," FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
+                        <Label Text="Как мимолетное виденье," FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
+                        <Label Text="Как гений чистой красоты" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+            <ScrollView VerticalOptions="CenterAndExpand" Grid.ColumnSpan="2" Grid.Row="3">
+                <FlexLayout HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
+                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                        <Label Text="Я помню чудное мгновенье:" FontFamily="Exo" FontSize="21"/>
+                    </Frame>
+                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                        <Label Text="Передо мной явилась ты," FontFamily="Exo" FontSize="21"/>
+                    </Frame>
+                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                        <Label Text="Как мимолетное виденье," FontFamily="Exo" FontSize="21"/>
+                    </Frame>
+                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                        <Label Text="Как гений чистой красоты" FontFamily="Exo" FontSize="21"/>
+                    </Frame>
+                </FlexLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
