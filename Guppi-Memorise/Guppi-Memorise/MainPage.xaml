@@ -43,7 +43,7 @@
                     <Label Text="Заучивание" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" x:Name="statistics">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -55,7 +55,7 @@
                     <Label Text="Статистика" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1" x:Name="profile">
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>

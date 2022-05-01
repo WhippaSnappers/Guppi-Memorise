@@ -10,14 +10,11 @@ using System.Diagnostics;
 namespace Guppi_Memorise
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfilePage : ContentPage
+    public partial class StatisticsPage : ContentPage
     {
-        public ProfilePage()
+        public StatisticsPage()
         {
             InitializeComponent();
-
-           // loginEntry = new Entry;
-           // loginEntry.TextChanged+=loginEntry_TextChanged;
         }
     }
 }
