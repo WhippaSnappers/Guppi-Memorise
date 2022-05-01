@@ -15,49 +15,30 @@ namespace Guppi_Memorise
         public MainPage()
         {
             InitializeComponent();
-            InitializeGestureRecognisers();
         }
 
-        private void InitializeGestureRecognisers()
-        {
-            // Flashcards
-            var gr1 = new TapGestureRecognizer();
-            gr1.NumberOfTapsRequired = 1;
-            gr1.Tapped += (s, e) => {
-                Navigation.PushAsync(new FlashCardsPage());
-            };
-            flashCards.GestureRecognizers.Add(gr1);
-            // About app
-            var gr2 = new TapGestureRecognizer();
-            gr2.NumberOfTapsRequired = 1;
-            gr2.Tapped += (s, e) => {
-                Navigation.PushAsync(new AboutApp());
-            };
-            aboutApp.GestureRecognizers.Add(gr2);
-            // About us
-            var gr3 = new TapGestureRecognizer();
-            gr3.NumberOfTapsRequired = 1;
-            gr3.Tapped += (s, e) =>
-            {
-                Navigation.PushAsync(new AboutUs());
-            };
-            aboutUs.GestureRecognizers.Add(gr3);
-            // Profile
-            var gr4 = new TapGestureRecognizer();
-            gr4.NumberOfTapsRequired = 1;
-            gr4.Tapped += (s, e) =>
-            {
-                Navigation.PushAsync(new ProfilePage());
-            };
-            profile.GestureRecognizers.Add(gr4);
-            // Statistics
-            var gr5 = new TapGestureRecognizer();
-            gr5.NumberOfTapsRequired = 1;
-            gr5.Tapped += (s, e) =>
-            {
-                Navigation.PushAsync(new StatisticsPage());
-            };
-            statistics.GestureRecognizers.Add(gr5);
+        private void FlashcardsClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new FlashCardsPage());
+        }
+
+        private void AboutAppClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new AboutApp());
+        }
+
+        private void AboutUsClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new AboutUs());
+        }
+
+        private void ProfileClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new ProfilePage());
+        }
+
+        private void StatClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new StatisticsPage());
+        }
+
+        private void MemorisingClicked(object sender, EventArgs e) {
+            Navigation.PushAsync(new MemorisingStartPage());
         }
     }
 }

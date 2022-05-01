@@ -20,6 +20,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="flashCards">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="FlashcardsClicked" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -31,7 +34,10 @@
                     <Label Text="Флэш-карточки" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
                 </StackLayout>
             </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
+            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MemorisingClicked" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -44,6 +50,9 @@
                 </StackLayout>
             </Frame>
             <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" x:Name="statistics">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="StatClicked" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -56,6 +65,9 @@
                 </StackLayout>
             </Frame>
             <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1" x:Name="profile">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ProfileClicked" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -68,6 +80,9 @@
                 </StackLayout>
             </Frame>
             <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2" x:Name="aboutApp">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AboutAppClicked" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
                 <Frame.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#08D283" Offset="0.0"/>
@@ -77,6 +92,10 @@
                 <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
             </Frame>
         </Grid>
-        <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
+        <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="AboutUsClicked" NumberOfTapsRequired="1"/>
+            </Label.GestureRecognizers>
+        </Label>
     </StackLayout>
 </ContentPage>
