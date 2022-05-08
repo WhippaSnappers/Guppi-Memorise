@@ -25,49 +25,53 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <Grid Padding="15">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="11*"/>
-            </Grid.RowDefinitions>
-            <Label Text="Ошибок: 0" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
-            <Label Text="Верно: 0 / 2" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
-            <StackLayout HorizontalOptions="End" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center">
-                <Image Source="{local:ImageResource Guppi-Memorise.Assets.againIcon.png}" HeightRequest="40"/>
-                <Label Text="Нанова" FontSize="13" VerticalOptions="Center"/>
-            </StackLayout>
-            <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="2" Grid.Row="2">
-                <ScrollView>
-                    <StackLayout>
-                        <Label Text="Я помню чудное мгновенье:" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
-                        <Label Text="Передо мной явилась ты," FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
-                        <Label Text="Как мимолетное виденье," FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
-                        <Label Text="Как гений чистой красоты" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21"/>
-                    </StackLayout>
+        <StackLayout>
+            <Grid Padding="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="11*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="mistakesCounter" Text="Ошибок: 0" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
+                <Label x:Name="doneCounter" Text="Верно: 0 / 2" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
+                <Label x:Name="timer" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="EndAndExpand" FontSize="40" HorizontalTextAlignment="Center" Margin="0, 5, 0, 10" IsVisible="false"/>
+                <StackLayout HorizontalOptions="End" Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center">
+                    <ImageButton x:Name="again" Source="{local:ImageResource Guppi-Memorise.Assets.againIcon.png}" BackgroundColor="Transparent" HeightRequest="40" Clicked="Again" IsEnabled="False"/>
+                    <Label Text="Нанова" FontSize="13" VerticalOptions="Center"/>
+                </StackLayout>
+                <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="2">
+                    <ScrollView>
+                        <StackLayout x:Name="window">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding}" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21" Opacity="0"/>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+                <ScrollView VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="3">
+                    <FlexLayout x:Name="answers" HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="LineTapped" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding}" FontFamily="Exo" FontSize="21"/>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
                 </ScrollView>
-            </Frame>
-            <ScrollView VerticalOptions="CenterAndExpand" Grid.ColumnSpan="2" Grid.Row="3">
-                <FlexLayout HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
-                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
-                        <Label Text="Я помню чудное мгновенье:" FontFamily="Exo" FontSize="21"/>
-                    </Frame>
-                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
-                        <Label Text="Передо мной явилась ты," FontFamily="Exo" FontSize="21"/>
-                    </Frame>
-                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
-                        <Label Text="Как мимолетное виденье," FontFamily="Exo" FontSize="21"/>
-                    </Frame>
-                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
-                        <Label Text="Как гений чистой красоты" FontFamily="Exo" FontSize="21"/>
-                    </Frame>
-                </FlexLayout>
-            </ScrollView>
-        </Grid>
+            </Grid>
+            
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

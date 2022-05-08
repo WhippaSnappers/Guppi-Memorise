@@ -18,7 +18,15 @@ namespace Guppi_Memorise {
         }
 
         private void Button_Clicked(object sender, EventArgs e) {
-            Navigation.PushAsync(new MemorisingPage());
+            Navigation.PushAsync(new MemorisingPage(parseUsersText(editor.Text)));
+        }
+
+        private List<List<string>> parseUsersText(string text) {
+            List<string> t = text.Split('\n').ToList();
+            t = t.Where(i => i != "").ToList();
+            t.Select((x, i) => new { index = i, value = x }).GroupBy(x => x.index / 4).Select(x => x.Select(v => v.value).ToList());
+            
+            return t.Select((x, i) => new { index = i, value = x }).GroupBy(x => x.index / 4).Select(x => x.Select(v => v.value).ToList()).ToList();
         }
     }
 }
