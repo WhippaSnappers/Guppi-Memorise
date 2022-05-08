@@ -40,10 +40,10 @@ namespace Guppi_Memorise {
                     DisplayAlert("Инфо", "На данном этапе текст разбивается на фрагменты. Ваша задача - собрать их в правильном порядке, в конце концов получив полный текст.", "Ок");
                     break;
                 case 2:
-                    DisplayAlert("Инфо", "На этом этапе ваша задача усложняется: отрывки становятся в два раза больше, и вам также нужно их восстановить из фрагментов", "Ок");
+                    DisplayAlert("Инфо", "На этом этапе ваша задача усложняется: отрывки становятся в два раза больше, и вам также нужно их восстановить из фрагментов.", "Ок");
                     break;
                 case 3:
-                    DisplayAlert("Инфо", "Этот уровень похож на предыдущий, однако программа запомнила среднее время, за которое вы собрали", "Ок");
+                    DisplayAlert("Инфо", "Ваша задача не изменилась, однако программа запомнила среднее время, за которое вы собирали отрывки, и теперь вам нужно снова собрать текст, уложившись в это время, таймер вы можете увидеть в верхней части экрана.", "Ок");
                     break;
                 case 4:
                     DisplayAlert("Инфо", "Lorem ipsum dolor sit amet", "Ок");
@@ -86,7 +86,8 @@ namespace Guppi_Memorise {
             BindableLayout.SetItemsSource(answers, ShuffleLines(boundText[currentExtract]));
 
             if (level == 3 || level == 6) {
-                timer.Text = String.Format("{0:00}:{1:00}", timeArray[level - 2].Seconds / 60, timeArray[level - 2].Seconds % 60);
+                int average = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
+                timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
             }
 
             foreach (var item in window.Children) {
@@ -129,7 +130,8 @@ namespace Guppi_Memorise {
                     
                     isEnded = false;
                     if (level == 3 || level == 6) {
-                        int time = timeArray[level - 2].Seconds;
+                        int time = timeArray[level == 3 ? 0 : 3].Seconds;
+
                         Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                             Device.BeginInvokeOnMainThread(() => {
                                 if (!isEnded) {
@@ -192,7 +194,8 @@ namespace Guppi_Memorise {
                                 again.IsEnabled = false;
 
                                 if (level == 3 || level == 6) {
-                                    timer.Text = String.Format("{0:00}:{1:00}", timeArray[level - 2].Seconds / 60, timeArray[level - 2].Seconds % 60);
+                                    int average = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
+                                    timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
                                 }
                             }
                             else {
@@ -234,7 +237,8 @@ namespace Guppi_Memorise {
                     boundText = startText;
                     BindableLayout.SetItemsSource(window, boundText[currentExtract]);
                     BindableLayout.SetItemsSource(answers, ShuffleLines(boundText[currentExtract]));
-                    timer.Text = String.Format("{0:00}:{1:00}", timeArray[level - 2].Seconds / 60, timeArray[level - 2].Seconds % 60);
+                    int average = (timeArray[0].Seconds + timeArray[1].Seconds) / 2;
+                    timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
                     timer.IsVisible = true;
                     break;
                 case 4:
