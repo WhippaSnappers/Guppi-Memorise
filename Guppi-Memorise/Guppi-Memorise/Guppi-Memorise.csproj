@@ -11,12 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\againIcon.png" />
     <None Remove="Assets\avatar.png" />
     <None Remove="Assets\book-icon-rev.png" />
     <None Remove="Assets\book-icon.png" />
     <None Remove="Assets\Exo 2.ttf" />
     <None Remove="Assets\flash-cards-icon-rev.png" />
     <None Remove="Assets\flash-cards-icon.png" />
+    <None Remove="Assets\infoIcon.png" />
     <None Remove="Assets\Lobster.ttf" />
     <None Remove="Assets\plusIcon.png" />
     <None Remove="Assets\profile-icon-rev.png" />
@@ -27,12 +29,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\againIcon.png" />
     <EmbeddedResource Include="Assets\avatar.png" />
     <EmbeddedResource Include="Assets\book-icon-rev.png" />
     <EmbeddedResource Include="Assets\book-icon.png" />
     <EmbeddedResource Include="Assets\Exo 2.ttf" />
     <EmbeddedResource Include="Assets\flash-cards-icon-rev.png" />
     <EmbeddedResource Include="Assets\flash-cards-icon.png" />
+    <EmbeddedResource Include="Assets\infoIcon.png" />
     <EmbeddedResource Include="Assets\Lobster.ttf" />
     <EmbeddedResource Include="Assets\plusIcon.png" />
     <EmbeddedResource Include="Assets\profile-icon-rev.png" />
@@ -50,6 +54,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="MemorisingStartPage.xaml.cs">
+      <DependentUpon>MemorisingStartPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="AboutApp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -57,6 +67,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="DeckPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MemorisingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MemorisingStartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="SelfControlPage.xaml">
