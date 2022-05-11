@@ -50,7 +50,7 @@
                 <StackLayout x:Name="layout" Padding="15, 0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding id}" Tapped="CardTapped" LongPressed="Frame_LongPressed">
+                            <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding Id}" Tapped="CardTapped" LongPressed="Frame_LongPressed">
                                 <Frame.Background>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -58,15 +58,15 @@
                                     </LinearGradientBrush>
                                 </Frame.Background>
                                 <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Label Text="{Binding rating, StringFormat='{0:+#;-#;+0}'}" FontSize="15" TextColor="#012545" FontFamily="Exo" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"/>
+                                    <Label Text="{Binding Rating, StringFormat='{0:+#;-#;+0}'}" FontSize="15" TextColor="#012545" FontFamily="Exo" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"/>
                                     <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="14, 0">
-                                        <Label Text="{Binding title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding title}" MaxLength="200" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed"/>
+                                        <Label Text="{Binding Title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Title}" MaxLength="200" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed"/>
                                         <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false">
-                                            <Label Text="{Binding text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                            <Label Text="{Binding Text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                         </ScrollView>
                                         <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
-                                            <Editor FontFamily="Exo" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding text}" MaxLength="2000" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed1"/>
+                                            <Editor FontFamily="Exo" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Text}" MaxLength="2000" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed1"/>
                                         </ScrollView>
                                     </StackLayout>
                                 </AbsoluteLayout>

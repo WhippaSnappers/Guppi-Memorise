@@ -19,9 +19,14 @@ namespace Guppi_Memorise {
 
         public FlashCardsPage() {
             InitializeComponent();
-
-            decks = new ObservableCollection<Deck>();
             BindableLayout.SetItemsSource(layout, decks);
+
+            Task.Run(async () =>
+            {
+                var decksList = await DB.FetchDecks();
+                decks = new ObservableCollection<Deck>(decksList);
+
+            });
         }
 
         private void RenameCard(object sender) {
@@ -35,26 +40,27 @@ namespace Guppi_Memorise {
         private void DeckTapped(object sender, MR.Gestures.TapEventArgs e) {
             if (!isRenaming) {
                 if (!isClicked) {
-                    Deck tappedDeck = decks.Where(i => i.id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
+                    Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
                     isClicked = true;
-                    Navigation.PushAsync(new DeckPage(ref tappedDeck));
+                    Navigation.PushAsync(new DeckPage(tappedDeck));
                     isClicked = false;
                 }
             }
         }
 
-        private void AddDeck(object sender, EventArgs e) {
+        private async void AddDeck(object sender, EventArgs e) {
             if (!isRenaming) {
                 var newDeck = new Deck();
+                await DB.AddDeck(newDeck);
                 decks.Add(newDeck);
-                var deck = layout.Children.Where(i => Int32.Parse(i.ClassId) == newDeck.id).FirstOrDefault();
+                var deck = layout.Children.FirstOrDefault(i => Int32.Parse(i.ClassId) == newDeck.Id);
                 RenameCard(deck);
             }
         }
 
         private async void Frame_LongPressed(object sender, MR.Gestures.LongPressEventArgs e) {
             if (!isRenaming) {
-                Deck tappedDeck = decks.Where(i => i.id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
+                Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
                 string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать");
                 switch (res) {
                     case "Удалить": 

@@ -15,68 +15,76 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="185"/>
+                <RowDefinition Height="185"/>
             </Grid.RowDefinitions>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="flashCards">
-                <Frame.Background>
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" Source="{local:ImageResource Guppi-Memorise.Assets.flash-cards-icon-rev.png}" Clicked="FlashCardsButton">
+                <ImageButton.BackgroundColor>
+                    <!-- Necessary crutch -->
+                    <Color>White</Color>
+                </ImageButton.BackgroundColor>
+                <ImageButton.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
                         <GradientStop Color="#07957A" Offset="1.0"/>
                     </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout VerticalOptions="Center">
-                    <Image Source="{local:ImageResource Guppi-Memorise.Assets.flash-cards-icon.png}"/>
-                    <Label Text="Флэш-карточки" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
-                </StackLayout>
-            </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0">
-                <Frame.Background>
+                </ImageButton.Background>
+            </ImageButton>
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0" Source="{local:ImageResource Guppi-Memorise.Assets.book-icon-rev.png}" Clicked="LearnTextButton">
+                <ImageButton.BackgroundColor>
+                    <!-- Necessary crutch -->
+                    <Color>White</Color>
+                </ImageButton.BackgroundColor>
+                <ImageButton.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
                         <GradientStop Color="#07957A" Offset="1.0"/>
                     </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout VerticalOptions="Center">
-                    <Image Source="{local:ImageResource Guppi-Memorise.Assets.book-icon.png}"/>
-                    <Label Text="Заучивание" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
-                </StackLayout>
-            </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" x:Name="statistics">
-                <Frame.Background>
+                </ImageButton.Background>
+            </ImageButton>
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon-rev.png}" Clicked="StatisticsButton">
+                <ImageButton.BackgroundColor>
+                    <!-- Necessary crutch -->
+                    <Color>White</Color>
+                </ImageButton.BackgroundColor>
+                <ImageButton.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
                         <GradientStop Color="#07957A" Offset="1.0"/>
                     </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout VerticalOptions="Center">
-                    <Image Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon.png}"/>
-                    <Label Text="Статистика" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
-                </StackLayout>
-            </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1" x:Name="profile">
-                <Frame.Background>
+                </ImageButton.Background>
+            </ImageButton>
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.profile-icon-rev.png}" Clicked="ProfileButton">
+                <ImageButton.BackgroundColor>
+                    <!-- Necessary crutch -->
+                    <Color>White</Color>
+                </ImageButton.BackgroundColor>
+                <ImageButton.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00CCAD" Offset="0.0"/>
                         <GradientStop Color="#07957A" Offset="1.0"/>
                     </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout VerticalOptions="Center">
-                    <Image Source="{local:ImageResource Guppi-Memorise.Assets.profile-icon.png}"/>
-                    <Label Text="Профиль" FontSize="16" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
-                </StackLayout>
-            </Frame>
-            <Frame HasShadow="False" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="2" x:Name="aboutApp">
-                <Frame.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#08D283" Offset="0.0"/>
-                        <GradientStop Color="#1C9D62" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
-            </Frame>
+                </ImageButton.Background>
+            </ImageButton>
         </Grid>
-        <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline"/>
+        <StackLayout Margin="0, 10">
+            <Button Text="О приложении" Font="Russo One" TextTransform="None" FontSize="20" HeightRequest="50" IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="AboutAppButton">
+                <Button.BackgroundColor>
+                    <!-- Necessary crutch -->
+                    <Color>White</Color>
+                </Button.BackgroundColor>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#00CCAD" Offset="0.0"/>
+                        <GradientStop Color="#07957A" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AboutUsButton"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -12,8 +12,9 @@ namespace Guppi_Memorise
         public int Id { get; set; }
         [Indexed]
         public int DeckId { get; set; }
-        public string Title { get; set; }
-        public string Text { get; set; }
+        public string Title { get; set; } = "Новая карточка";
+        public string Text { get; set; } = "Текст карточки";
+        public int Rating { get; set; } = 0;
     }
     public class Deck
     {
@@ -47,6 +48,13 @@ namespace Guppi_Memorise
         {
             await Init();
             var query = await db.Table<Card>().Where(e => e.DeckId == deck.Id).ToListAsync();
+            return query;
+        }
+        public static async Task<int> CountCards(Deck deck)
+        {
+            await Init();
+            // Needs to be tested
+            var query = await db.Table<Card>().Where(e => e.DeckId == deck.Id).CountAsync();
             return query;
         }
         public static async Task AddDeck(Deck deck)

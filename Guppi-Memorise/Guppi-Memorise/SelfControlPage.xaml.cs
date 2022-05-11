@@ -60,8 +60,8 @@ namespace Guppi_Memorise {
 
         private void setCard(int index) {
             var slChildren = (frame.Content as StackLayout).Children;
-            (slChildren[0] as Label).Text = cards[index].title;
-            ((slChildren[1] as ScrollView).Content as Label).Text = cards[index].text;
+            (slChildren[0] as Label).Text = cards[index].Title;
+            ((slChildren[1] as ScrollView).Content as Label).Text = cards[index].Text;
             if (!cardsRated[index]) {
                 toggleRatingBtns(true);
             }
@@ -83,13 +83,13 @@ namespace Guppi_Memorise {
         }
 
         private void RatingPlus(object sender, EventArgs e) {
-            cards[selectedIndex].rating++;
+            cards[selectedIndex].Rating++;
             toggleRatingBtns(false);
             cardsRated[selectedIndex] = true;
         }
 
         private void RatingMinus(object sender, EventArgs e) {
-            cards[selectedIndex].rating--;
+            cards[selectedIndex].Rating--;
             toggleRatingBtns(false);
             cardsRated[selectedIndex] = true;
         }

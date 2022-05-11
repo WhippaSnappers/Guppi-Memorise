@@ -16,18 +16,25 @@ namespace Guppi_Memorise {
         private Deck deck;
         private bool isRenaming = false;
         private bool isClicked = false;
+        private ObservableCollection<Card> cards;
 
-        public DeckPage(ref Deck deck) {
+        public DeckPage(Deck deck) {
             InitializeComponent();
             this.deck = deck;
-            BindableLayout.SetItemsSource(layout, deck.cards);
-            title.SetBinding(Label.TextProperty, new Binding { Source = deck, Path = "name"});
-            if (deck.cards.Count > 1) {
-                selfControl.IsEnabled = true;
-                sort.IsEnabled = true;
-            }
+            BindableLayout.SetItemsSource(layout, cards);
+            title.SetBinding(Label.TextProperty, new Binding { Source = deck, Path = "Name"});
+            Task.Run(async () =>
+            {
+                var cardsList = await DB.FetchCards(deck);
+                cards = new ObservableCollection<Card>(cardsList);
+                var cardsCount = cardsList.Count;
+                if (cardsCount > 1)
+                {
+                    selfControl.IsEnabled = true;
+                    sort.IsEnabled = true;
+                }
+            });
         }
-
         private void CardTapped(object sender, MR.Gestures.TapEventArgs e) {
             if (!isRenaming) {
                 var slChildren = (((sender as Frame).Content as AbsoluteLayout).Children[1] as StackLayout).Children;
@@ -35,16 +42,16 @@ namespace Guppi_Memorise {
                 slChildren[2].IsVisible = !slChildren[2].IsVisible;
             }
         }
-
-        private void AddCard(object sender, EventArgs e) {
+        private async void AddCard(object sender, EventArgs e) {
             if (!isRenaming) {
                 isRenaming = true;
-                var newCard = new Card();
-                deck.cards.Insert(0, newCard);
-                var card = layout.Children.Where(i => Int32.Parse(i.ClassId) == newCard.id).FirstOrDefault();
+                var newCard = new Card() { DeckId = deck.Id};
+                await DB.AddCard(deck, newCard);
+                cards.Add(newCard);
+                var card = layout.Children.Where(i => Int32.Parse(i.ClassId) == newCard.Id).FirstOrDefault();
                 var slChildren = (((card as Frame).Content as AbsoluteLayout).Children[1] as StackLayout).Children;
 
-                if (deck.cards.Count > 1) {
+                if (cards.Count > 1) {
                     selfControl.IsEnabled = true;
                     sort.IsEnabled = true;
                 }
@@ -52,17 +59,17 @@ namespace Guppi_Memorise {
                 RenameCardToggle(slChildren);
             }
         }
-
         private async void Frame_LongPressed(object sender, MR.Gestures.LongPressEventArgs e) {
             if (!isRenaming) {
                 var slChildren = (((sender as Frame).Content as AbsoluteLayout).Children[1] as StackLayout).Children;
                 if (slChildren[0].IsVisible) {
-                    Card tappedCard = deck.cards.Where(i => i.id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
+                    Card tappedCard = cards.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
                     string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать");
                     switch (res) {
                         case "Удалить":
-                            deck.cards.Remove(tappedCard);
-                            if (deck.cards.Count < 2) {
+                            cards.Remove(tappedCard);
+                            await DB.RemoveCard(tappedCard);
+                            if (cards.Count < 2) {
                                 selfControl.IsEnabled = false;
                             }
                             break;
@@ -78,7 +85,6 @@ namespace Guppi_Memorise {
                 }
             }
         }
-
         private void RenameCardToggle(IList<View> slChildren) {
             slChildren[0].IsVisible = !slChildren[0].IsVisible;
             slChildren[1].IsVisible = !slChildren[1].IsVisible;
@@ -86,7 +92,6 @@ namespace Guppi_Memorise {
                 (slChildren[1] as Editor).Focus();
             }
         }
-
         private void ChangeTextToggle(IList<View> slChildren) {
             slChildren[2].IsVisible = !slChildren[2].IsVisible;
             slChildren[3].IsVisible = !slChildren[3].IsVisible;
@@ -94,50 +99,46 @@ namespace Guppi_Memorise {
                 ((slChildren[3] as ScrollView).Content as Editor).Focus();
             }
         }
-
         private void Editor_Completed(object sender, EventArgs e) {
             var slChildren = ((sender as Editor).Parent as StackLayout).Children;
             RenameCardToggle(slChildren);
             isRenaming = false;
         }
-
         private void Editor_Completed1(object sender, EventArgs e) {
             var slChildren = (((sender as Editor).Parent as ScrollView).Parent as StackLayout).Children;
             ChangeTextToggle(slChildren);
             isRenaming = false;
         }
-
         private void Button_Clicked(object sender, EventArgs e) {
             if (!isClicked) {
                 isClicked = true;
-                Navigation.PushAsync(new SelfControlPage(deck.cards));
+                Navigation.PushAsync(new SelfControlPage(cards));
                 isClicked = false;
             }
         }
-
         private async void SortBtn(object sender, EventArgs e) {
             var result = await DisplayActionSheet("Отсортировать", "Отмена", "", "По рейтингу запоминания (по возрастанию)", "По рейтингу запоминания (по убыванию)", "По алфавиту (по возрастанию)", "По алфавиту (по убыванию)", "В порядке добавления");
             switch (result) {
                 case "По рейтингу запоминания (по убыванию)":
-                    deck.cards = new ObservableCollection<Card>(deck.cards.OrderByDescending(i => i.rating));
-                    BindableLayout.SetItemsSource(layout, deck.cards);
-                    BindableLayout.SetItemsSource(layout, deck.cards);
+                    cards = new ObservableCollection<Card>(cards.OrderByDescending(i => i.Rating));
+                    BindableLayout.SetItemsSource(layout, cards);
+                    BindableLayout.SetItemsSource(layout, cards);
                     break;
                 case "По рейтингу запоминания (по возрастанию)":
-                    deck.cards = new ObservableCollection<Card>(deck.cards.OrderBy(i => i.rating));
-                    BindableLayout.SetItemsSource(layout, deck.cards);
+                    cards = new ObservableCollection<Card>(cards.OrderBy(i => i.Rating));
+                    BindableLayout.SetItemsSource(layout, cards);
                     break;
                 case "По алфавиту (по возрастанию)":
-                    deck.cards = new ObservableCollection<Card>(deck.cards.OrderBy(i => i.title));
-                    BindableLayout.SetItemsSource(layout, deck.cards);
+                    cards = new ObservableCollection<Card>(cards.OrderBy(i => i.Title));
+                    BindableLayout.SetItemsSource(layout, cards);
                     break;
                 case "По алфавиту (по убыванию)":
-                    deck.cards = new ObservableCollection<Card>(deck.cards.OrderByDescending(i => i.title));
-                    BindableLayout.SetItemsSource(layout, deck.cards);
+                    cards = new ObservableCollection<Card>(cards.OrderByDescending(i => i.Title));
+                    BindableLayout.SetItemsSource(layout, cards);
                     break;
                 case "В порядке добавления":
-                    deck.cards = new ObservableCollection<Card>(deck.cards.OrderByDescending(i => i.id));
-                    BindableLayout.SetItemsSource(layout, deck.cards);
+                    cards = new ObservableCollection<Card>(cards.OrderByDescending(i => i.Id));
+                    BindableLayout.SetItemsSource(layout, cards);
                     break;
             }
         }
