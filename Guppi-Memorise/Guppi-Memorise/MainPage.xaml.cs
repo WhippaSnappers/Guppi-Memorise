@@ -41,7 +41,6 @@ namespace Guppi_Memorise
         public MainPage()
         {
             InitializeComponent();
-
         }
     }
 }

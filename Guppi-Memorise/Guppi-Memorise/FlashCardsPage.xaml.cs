@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,8 +53,11 @@ namespace Guppi_Memorise {
                 var newDeck = new Deck();
                 await DB.AddDeck(newDeck);
                 decks.Add(newDeck);
+
+
+
                 var deck = layout.Children.FirstOrDefault(i => Int32.Parse(i.ClassId) == newDeck.Id);
-                RenameCard(deck);
+                //RenameCard(newDeck);
             }
         }
 
