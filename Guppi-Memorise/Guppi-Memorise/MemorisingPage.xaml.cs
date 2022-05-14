@@ -14,6 +14,8 @@ namespace Guppi_Memorise {
         public List<List<string>> startText { get; set; }
         public List<List<string>> boundText;
 
+        private List<int> hiddenWords;
+
         private bool isEnded = false;
 
         private int currentLine = 0;
@@ -29,6 +31,7 @@ namespace Guppi_Memorise {
             InitializeComponent();
             startText = str;
             boundText = str;
+            hiddenWords = new List<int>();
             timeArray = new List<TimeSpan>(6);
             BindableLayout.SetItemsSource(window, startText[currentExtract]);
             BindableLayout.SetItemsSource(answers, ShuffleLines(startText[currentExtract]));
@@ -59,7 +62,7 @@ namespace Guppi_Memorise {
 
         private void LineTapped(object sender, EventArgs e) {
             if (level < 4) {
-                LinesLevel(sender, boundText);
+                LinesLevel(sender);
             }
         }
 
@@ -114,14 +117,17 @@ namespace Guppi_Memorise {
         private List<List<string>> JoinLines (List<List<string>> lines) {
             List<List<string>> result = new List<List<string>>();
             for (int i = 0; i < lines.Count; i += 2) {
-                if (lines[i + 1] != null) {
+                if (i + 1 != lines.Count) {
                     result.Add(lines[i].Concat(lines[i + 1]).ToList());
+                }
+                else {
+                    result.Add(lines[i]);
                 }
             }
             return result;
         }
 
-        private void LinesLevel(object sender, List<List<string>> lines) {
+        private void LinesLevel(object sender) {
 
             if ((sender as Frame).Opacity != 0) {
 
@@ -130,16 +136,16 @@ namespace Guppi_Memorise {
                     
                     isEnded = false;
                     if (level == 3 || level == 6) {
-                        int time = timeArray[level == 3 ? 0 : 3].Seconds;
+                        int time = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
 
                         Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                             Device.BeginInvokeOnMainThread(() => {
                                 if (!isEnded) {
                                     timer.Text = String.Format("{0:00}:{1:00}", time / 60, time % 60);
+                                    time--; 
                                 }
                             });
-                            time--;
-                            if (time == 0) {
+                            if (time == 0 && !isEnded) {
                                 DisplayAlert("Ой-ой", "Кажется, вы не успели :( Пожалуйста, попробуйте еще раз.", "Ок");
                                 Reset();
                                 return false;
@@ -160,7 +166,7 @@ namespace Guppi_Memorise {
                     window.Children[currentLine++].Opacity = 1;
                     (sender as Frame).Opacity = 0;
 
-                    if (currentLine == lines[currentExtract].Count) {
+                    if (currentLine == boundText[currentExtract].Count || currentLine == hiddenWords.Last() && level > 3) {
                         currentLine = 0;
                         foreach (var item in window.Children) {
                             item.Opacity = 0;
@@ -169,14 +175,14 @@ namespace Guppi_Memorise {
                             item.Opacity = 1;
                         }
                         ++currentExtract;
-                        if (currentExtract < lines.Count) {
-                            BindableLayout.SetItemsSource(window, lines[currentExtract]);
-                            BindableLayout.SetItemsSource(answers, ShuffleLines(lines[currentExtract]));
+                        if (currentExtract < boundText.Count) {
+                            BindableLayout.SetItemsSource(window, boundText[currentExtract]);
+                            BindableLayout.SetItemsSource(answers, ShuffleLines(boundText[currentExtract]));
                         }
 
                     }
 
-                    if (currentExtract == lines.Count) {
+                    if (currentExtract == boundText.Count) {
                         if (mistakes == 0) {
                             isEnded = true;
                             if (done == 0) {
@@ -186,8 +192,8 @@ namespace Guppi_Memorise {
 
                                 currentExtract = 0;
 
-                                BindableLayout.SetItemsSource(window, lines[currentExtract]);
-                                BindableLayout.SetItemsSource(answers, ShuffleLines(lines[currentExtract]));
+                                BindableLayout.SetItemsSource(window, boundText[currentExtract]);
+                                BindableLayout.SetItemsSource(answers, ShuffleLines(boundText[currentExtract]));
 
 
                                 doneCounter.Text = $"Верно: {++done} / 2";
@@ -243,12 +249,27 @@ namespace Guppi_Memorise {
                     break;
                 case 4:
                     timer.IsVisible = false;
+                    Random rand = new Random();
+                    hiddenWords = generateListOfRandomNumbers(rand.Next(boundText[0].Count / 10 + 1, boundText[0].Count / 2));
                     break;
                 case 5:
                     break;
                 case 6:
                     break;
             }
+        }
+
+        private List<int> generateListOfRandomNumbers(int size) {
+            List<int> list = new List<int>();
+            Random rand = new Random();
+            while (list.Count < size) {
+                int n = rand.Next(size);
+                if (!list.Contains(n)) {
+                    list.Add(n);
+                }
+            }
+            list.Sort();
+            return list;
         }
     }
 }

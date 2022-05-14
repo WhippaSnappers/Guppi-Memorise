@@ -50,7 +50,7 @@
                         <StackLayout x:Name="window">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding}" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21" Opacity="0"/>
+                                    <Label Text="{Binding}" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="17" Opacity="0"/>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
@@ -64,7 +64,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="LineTapped" NumberOfTapsRequired="1"/>
                                     </Frame.GestureRecognizers>
-                                    <Label Text="{Binding}" FontFamily="Exo" FontSize="21"/>
+                                    <Label Text="{Binding}" FontFamily="Exo" FontSize="17"/>
                                 </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

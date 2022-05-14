@@ -20,7 +20,7 @@ namespace Guppi_Memorise
         }
         public async void LearnTextButton(object s, EventArgs a)
         {
-            //await Navigation.PushAsync(new);
+            await Navigation.PushAsync(new MemorisingStartPage());
         }
         public async void StatisticsButton(object s, EventArgs a)
         {
