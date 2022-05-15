@@ -28,5 +28,14 @@ namespace Guppi_Memorise {
             
             return t.Select((x, i) => new { index = i, value = x }).GroupBy(x => x.index / 4).Select(x => x.Select(v => v.value).ToList()).ToList();
         }
+
+        private void editor_Completed(object sender, EventArgs e) {
+            if ((sender as Editor).Text.Length > 0) {
+                btn.IsEnabled = true;
+            }
+            else {
+                btn.IsEnabled = false;
+            }
+        }
     }
 }
