@@ -12,6 +12,10 @@ namespace Guppi_Memorise
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
+        private int createDecks = 0;
+        private int createFlashCards = 0;
+        private int downloadText = 0;
+        private int shareDecks = 0;
         public ProfilePage()
         {
             InitializeComponent();
