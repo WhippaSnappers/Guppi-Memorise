@@ -88,8 +88,8 @@ namespace Guppi_Memorise {
                             });
                             if (time == 0 && !isEnded) {
                                 if (level == 6) {
-                                    timeArray[level - 3] += TimeSpan.FromSeconds(3);
-                                    timeArray[level - 2] += TimeSpan.FromSeconds(3);
+                                    timeArray[level - 3] += TimeSpan.FromSeconds(6);
+                                    timeArray[level - 2] += TimeSpan.FromSeconds(6);
                                     DisplayAlert("Ой-ой", "Кажется, вы не успели :( Пожалуйста, попробуйте еще раз. Чтобы вам было чуть проще, мы добавили к таймеру 3 секунды.", "Ок");
                                 }
                                 else {
@@ -227,6 +227,9 @@ namespace Guppi_Memorise {
 
             if (level == 3 || level == 6) {
                 int average = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
+                if (level == 6) {
+                    average /= 2;
+                }
                 timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
             }
 
@@ -282,6 +285,7 @@ namespace Guppi_Memorise {
                     timer.IsVisible = false;
 
                     BindableLayout.SetItemTemplate(answers, (DataTemplate)Resources["wordTemplate"]);
+                    answers.Margin = new Thickness(-5, 0);
 
                     standardText = SplitText(boundText); 
 
@@ -298,7 +302,7 @@ namespace Guppi_Memorise {
                     standardText = SplitText(boundText);
                     boundTextWords = JoinText(boundText);
                     bindWords(boundTextWords[0]);
-                    int averageWords = (timeArray[3].Seconds + timeArray[4].Seconds) / 2;
+                    int averageWords = (timeArray[3].Seconds + timeArray[4].Seconds) / 4;
                     timer.Text = String.Format("{0:00}:{1:00}", averageWords / 60, averageWords % 60);
                     timer.IsVisible = true;
                     break;
