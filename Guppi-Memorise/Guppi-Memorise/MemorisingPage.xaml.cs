@@ -109,8 +109,8 @@ namespace Guppi_Memorise {
 
                 string text = ((sender as Frame).Content as Label).Text;
 
-                if (level <= 3 && text == (window.Children[currentPart] as Label).Text || level > 3 && text == standardText[currentExtract][missedWordsIndexes[currentPart]]) {
-                    if (level <= 3 && text == (window.Children[currentPart] as Label).Text) {
+                if (level <= 3 && text == (window.Children[currentPart] as Label).Text || level > 3 && text == standardText[currentExtract][missedWordsIndexes[currentPart]]) { //условие верного клика
+                    if (level <= 3 && text == (window.Children[currentPart] as Label).Text) { //условие на проверку уровня: если уровень на строчки, то меняем опасити, если нет, то ищем 6 подчеркиваний и заменяем на кликнутое слово (здесь могут быть проблемы если юзер решит написать текст с 6 подчеркиваниями подряд, и здесь все поедет)
                         window.Children[currentPart++].Opacity = 1;
                     }
                     else {
@@ -119,7 +119,7 @@ namespace Guppi_Memorise {
                     }
                     (sender as Frame).Opacity = 0;
 
-                    if (level <= 3 & currentPart == boundText[currentExtract].Count || level > 3 & currentPart == missedWords.Count & currentPart > 0) {
+                    if (level <= 3 & currentPart == boundText[currentExtract].Count || level > 3 & currentPart == missedWords.Count & currentPart > 0) { //проверка на случай, когда юзер закончит с этой строфой
                         if (currentPart == boundText[currentExtract].Count) {
                             foreach (var item in window.Children) {
                                 item.Opacity = 0;
@@ -129,7 +129,7 @@ namespace Guppi_Memorise {
                             item.Opacity = 1;
                         }
                         currentPart = 0;
-                        ++currentExtract;
+                        ++currentExtract; //здесь были логические проблемы с определением конца текста, поэтому пришлось сделать такой костыль: сначала прибавлять единицу к текущему отрывку, а только потом проверять его, иначе там ломается хуйня
                         if (currentExtract < boundText.Count) {
                             if (level <= 3) {
                                 bindExtract(boundText[currentExtract]);
@@ -141,11 +141,11 @@ namespace Guppi_Memorise {
 
                     }
 
-                    if (currentExtract == boundText.Count) {
-                        if (mistakes == 0) {
-                            isEnded = true;
-                            if (done == 0) {
-                                timeArray.Add(DateTime.Now.Subtract(startTime));
+                    if (currentExtract == boundText.Count) { //проверка на конец текста
+                        if (mistakes == 0) { //проверка на отсутствие ошибок
+                            isEnded = true; //меняем флаг, чтобы быстро остановить таймер и он нам не поднасрал
+                            if (done == 0) { //если это первое прохождение левела, то начинаем заново и добавляем 1 к счетчику прохождений
+                                timeArray.Add(DateTime.Now.Subtract(startTime)); //запоминаем время прохождения
 
                                 DisplayAlert("Так держать!", "Вы справились с этим упражнением! Чтобы перейти на следующий уровень, повторите свой успех!", "Ок");
 
@@ -162,28 +162,33 @@ namespace Guppi_Memorise {
                                 doneCounter.Text = $"Верно: {++done} / 2";
                                 again.IsEnabled = false;
 
-                                if (level == 3 || level == 6) {
+                                if (level == 3 || level == 6) { //обнуление таймера
                                     int average = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
                                     timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
                                 }
                             }
-                            else {
-                                timeArray[level - 1] = new TimeSpan((timeArray[level - 1] + (DateTime.Now.Subtract(startTime))).Ticks / 2);
-
+                            else { //если это было второе прохождение, то переходим на следующий левел
                                 doneCounter.Text = $"Верно: {++done} / 2";
-                                DisplayAlert("Ура!", "Вы закончили этот этап и переходите на следующий!", "Ок");
-                                NextLevel();
-                                doneCounter.Text = $"Верно: {done} / 2";
+                                if (level < 6) {
+                                    timeArray[level - 1] = new TimeSpan((timeArray[level - 1] + (DateTime.Now.Subtract(startTime))).Ticks / 2);
+
+                                    DisplayAlert("Ура!", "Вы закончили этот этап и переходите на следующий!", "Ок");
+                                    NextLevel();
+                                    doneCounter.Text = $"Верно: {done} / 2";
+                                }
+                                else { //если последний левел, то выкидываем юзера со страницы, там через disappearing вызывается информационное окно с похвалой
+                                    Navigation.PopAsync();
+                                }
                             }
 
                         }
-                        else {
+                        else { //если есть ошибки, пиздим юзера, ебем его в жопу и выкидываем в канаву. ну и конечно ресетим левел
                             DisplayAlert("Ой-ой", "Кажется, вы допустили одну или несколько ошибок! Чтобы перейти к следующему этапу, пройдите этот этап дважды без ошибок!", "Ок");
                             Reset();
                         }
                     }
                 }
-                else {
+                else { //если клик ошибочный, помечаем красным цветом, чтобы унизить юзера и меняем счетчик. теперь это клеймо на всю жизнь
                     mistakesCounter.Text = $"Ошибок: {++mistakes}";
                     (sender as Frame).BackgroundColor = Color.Red;
                     again.IsEnabled = true;
@@ -191,11 +196,11 @@ namespace Guppi_Memorise {
             }
         }
 
-        private void Again(object sender, EventArgs e) {
+        private void Again(object sender, EventArgs e) { //функция для кнопки нанова
             Reset();
         }
 
-        private void Reset() {
+        private void Reset() { //обнуляет прогресс уровня
             currentExtract = 0;
             currentPart = 0;
             mistakes = 0;
@@ -230,7 +235,7 @@ namespace Guppi_Memorise {
             }
         }
 
-        private List<string> ShuffleParts(List<string> text) {
+        private List<string> ShuffleParts(List<string> text) { //перемешивает элементы списка
             string[] lines = new string[text.Count];
             text.CopyTo(lines);
             Random rnd = new Random();
@@ -243,7 +248,7 @@ namespace Guppi_Memorise {
             return lines.ToList();
         }
 
-        private List<List<string>> JoinExtracts (List<List<string>> lines) {
+        private List<List<string>> JoinExtracts (List<List<string>> lines) { //соединяет по две строфы в одну для 2 или 5 уровней
             List<List<string>> result = new List<List<string>>();
             for (int i = 0; i < lines.Count; i += 2) {
                 if (i + 1 != lines.Count) {
@@ -256,7 +261,7 @@ namespace Guppi_Memorise {
             return result;
         }
 
-        private void NextLevel() {
+        private void NextLevel() { //осуществляет переход на следующий уровень, изменяя окно соответствующим образом на основе переменной levelи обнуляя все переменные прогресса уровня
             currentExtract = 0;
             currentPart = 0;
             done = 0;
@@ -300,7 +305,7 @@ namespace Guppi_Memorise {
             }
         }
 
-        private List<int> generateListOfRandomNumbers(int wordsCount) {
+        private List<int> generateListOfRandomNumbers(int wordsCount) { //возвращает список рандомных уникальных чисел от 0 до размера строфы - это параметр функции, размер этого списка - рандомное число от 20% размера строфы до 75%
             int size = new Random().Next(wordsCount / 5 + 1, wordsCount / 4 * 3 + 1);
             List<int> list = new List<int>();
             Random rand = new Random();
@@ -315,7 +320,7 @@ namespace Guppi_Memorise {
             return list;
         }
 
-        private List<string> generateMissingWords(string extract) {
+        private List<string> generateMissingWords(string extract) { //на основе списка рандомных чисел и переданной строфы генерирует список пропавших слов
             List<string> splittedExtract = extract.Split(' ', '\n').ToList();
             List<string> words = new List<string>();
             missedWordsIndexes = generateListOfRandomNumbers(splittedExtract.Count);
@@ -325,12 +330,12 @@ namespace Guppi_Memorise {
             return words;
         }
 
-        private void bindExtract(List<string> extract) {
+        private void bindExtract(List<string> extract) { //просто функция для перепривязки списков со строками к зонам ответов и правильных ответов
             BindableLayout.SetItemsSource(window, extract);
             BindableLayout.SetItemsSource(answers, ShuffleParts(extract));
         }
 
-        private void bindWords(string extract) {
+        private void bindWords(string extract) { //вместо привязки проще добавить готовую строку с пропавшими словами в виде лабеля, к зоне ответов привязываем список с пропавшими словами
             window.Children.Clear();
             window.Children.Add(new Label() {
                 Text = ReplaceMissingWords(extract),
@@ -341,7 +346,7 @@ namespace Guppi_Memorise {
             BindableLayout.SetItemsSource(answers, ShuffleParts(missedWords));
         }
 
-        private string ReplaceMissingWords(string extract) { //лучший костыль времен и народов
+        private string ReplaceMissingWords(string extract) { //лучший костыль времен и народов, у тебя наверняка появятся вопросы, почему я так сделал, так что пиши
             List<string> words = extract.Split(' ', '\n').ToList(); //ничего лучше не придумал: здесь передается в функцию полная строфа в виде цельной строки, она сплитится на слова
             missedWords = generateMissingWords(extract); //генерация пропавших слов
             for (int i = 0; i < missedWords.Count; ++i) {
@@ -370,7 +375,7 @@ namespace Guppi_Memorise {
             return String.Join("\n", result); //готовая строка с пропавшими словами
         }
 
-        private List<List<string>> SplitText(List<List<string>> text) {
+        private List<List<string>> SplitText(List<List<string>> text) { //на вход - список списков строк стиха, на выходе - список списков отдельных слов
             List<List<string>> result = new List<List<string>>();
             foreach (var item in text) {
                 result.Add(string.Join(" ", item).Split(' ').ToList());
@@ -378,7 +383,7 @@ namespace Guppi_Memorise {
             return result;
         }
 
-        private List<string> JoinText(List<List<string>> text) {
+        private List<string> JoinText(List<List<string>> text) { //на вход - список списков строк, на выходе - список строф
             List<string> result = new List<string>();
             foreach (var item in text) {
                 result.Add(string.Join("\n", item));
