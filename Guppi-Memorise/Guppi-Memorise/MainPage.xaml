@@ -42,7 +42,7 @@
                     </LinearGradientBrush>
                 </ImageButton.Background>
             </ImageButton>
-            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon-rev.png}" Clicked="StatisticsButton">
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon-rev.png}" Clicked="AboutAppButton">
                 <ImageButton.BackgroundColor>
                     <!-- Necessary crutch -->
                     <Color>White</Color>
@@ -68,7 +68,7 @@
             </ImageButton>
         </Grid>
         <StackLayout Margin="0, 10">
-            <Button Text="О приложении" Font="Russo One" TextTransform="None" FontSize="20" HeightRequest="50" IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="AboutAppButton">
+            <Button Text="О нас" Font="Russo One" TextTransform="None" FontSize="20" HeightRequest="50" IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="AboutUsButton">
                 <Button.BackgroundColor>
                     <!-- Necessary crutch -->
                     <Color>White</Color>
@@ -80,11 +80,6 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Label Text="О нас" x:Name="aboutUs" FontSize="20" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" TextDecorations="Underline">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AboutUsButton"/>
-                </Label.GestureRecognizers>
-            </Label>
         </StackLayout>
     </StackLayout>
 </ContentPage>
