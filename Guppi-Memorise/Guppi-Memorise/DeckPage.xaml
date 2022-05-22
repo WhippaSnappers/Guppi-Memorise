@@ -50,7 +50,7 @@
                 <StackLayout x:Name="layout" Padding="15, 0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding Id}" Tapped="CardTapped" LongPressed="Frame_LongPressed">
+                            <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding Id}" Tapped="CardTapped" LongPressed="CardLongPress">
                                 <Frame.Background>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -61,12 +61,12 @@
                                     <Label Text="{Binding Rating, StringFormat='{0:+#;-#;+0}'}" FontSize="15" TextColor="#012545" FontFamily="Exo" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"/>
                                     <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="14, 0">
                                         <Label Text="{Binding Title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Title}" MaxLength="200" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed"/>
-                                        <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="false">
+                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Title}" MaxLength="200" IsVisible="False" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="TitleEditorCompleted"/>
+                                        <ScrollView IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                         </ScrollView>
-                                        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
-                                            <Editor FontFamily="Exo" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Text}" MaxLength="2000" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed1"/>
+                                        <ScrollView IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Editor FontFamily="Exo" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Text}" MaxLength="2000" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="TextEditorCompleted"/>
                                         </ScrollView>
                                     </StackLayout>
                                 </AbsoluteLayout>
@@ -76,8 +76,8 @@
                 </StackLayout>
             </ScrollView>
             <StackLayout HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Margin="15" Spacing="10">
-                <Button x:Name="sort" IsEnabled="False" Text="Сортировать..." CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="SortBtn" HeightRequest="60"/>
-                <Button x:Name="selfControl" IsEnabled="False" Text="Самопроверка" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="Button_Clicked" HeightRequest="60"/>
+                <Button x:Name="sort" IsEnabled="False" Text="Сортировать..." CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="SortButton" HeightRequest="60"/>
+                <Button x:Name="selfControl" IsEnabled="False" Text="Самопроверка" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="SelfControlButton" HeightRequest="60"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
