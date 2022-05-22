@@ -44,9 +44,9 @@
         <FlexLayout Direction="Column" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" AlignContent="Center" JustifyContent="Center" Padding="15">
             <Label Text="Напишите или вставьте текст" FontSize="22" FontFamily="Russo One" TextColor="#012545" HorizontalTextAlignment="Center"/>
             <Frame BorderColor="#012545" CornerRadius="5" HeightRequest="300" BackgroundColor="#f0f0f0" Padding="10" Margin="0, 15">
-                <Editor x:Name="editor" HorizontalOptions="Fill" VerticalOptions="Fill" FontSize="17" FontFamily="Exo" TextColor="#012545" Completed="editor_Completed"/>
+                <Editor x:Name="editor" HorizontalOptions="Fill" VerticalOptions="Fill" FontSize="17" FontFamily="Exo" TextColor="#012545" Completed="TextEditorCompleted"/>
             </Frame>
-            <Button x:Name="btn" Text="Готово!" Clicked="Button_Clicked"/>
+            <Button x:Name="btn" Text="Готово!" Clicked="ReadyButtonClicked"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

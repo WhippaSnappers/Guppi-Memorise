@@ -8,10 +8,12 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Guppi_Memorise {
+namespace Guppi_Memorise
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class SelfControlPage : ContentPage {
+    public partial class SelfControlPage : ContentPage
+    {
         private List<Card> cards;
         private List<bool> cardsRated;
         private int selectedIndex;
