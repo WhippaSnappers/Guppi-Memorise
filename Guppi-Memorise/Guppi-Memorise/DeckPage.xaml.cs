@@ -25,9 +25,9 @@ namespace Guppi_Memorise
             InitializeComponent();
             this.deck = deck;
             title.SetBinding(Label.TextProperty, new Binding { Source = deck, Path = "Name"});
-            Task.Run(async () => await resetCollection());
+            Task.Run(async () => await ResetCollection());
         }
-        private async Task resetCollection()
+        private async Task ResetCollection()
         {
             var cardsList = await DB.FetchCards(deck);
             cardsList.Reverse();
@@ -106,7 +106,7 @@ namespace Guppi_Memorise
                 var newCard = new Card();
                 Task.Run(async () =>
                 {
-                    await resetCollection();
+                    await ResetCollection();
                     await DB.AddCard(deck, newCard);
                     Device.BeginInvokeOnMainThread(() =>
                     {
@@ -195,7 +195,12 @@ namespace Guppi_Memorise
             if (!isClicked)
             {
                 isClicked = true;
-                Navigation.PushAsync(new SelfControlPage(cards));
+                var selfControlPage = new SelfControlPage(cards);
+                selfControlPage.Disappearing += async (object __, EventArgs ___) =>
+                {
+                    await ResetCollection();
+                };
+                Navigation.PushAsync(selfControlPage);
                 isClicked = false;
             }
         }
@@ -221,7 +226,7 @@ namespace Guppi_Memorise
                     Device.BeginInvokeOnMainThread(() => BindableLayout.SetItemsSource(layout, cards));
                     break;
                 case "В порядке добавления":
-                    await resetCollection();
+                    await ResetCollection();
                     break;
             }
         }

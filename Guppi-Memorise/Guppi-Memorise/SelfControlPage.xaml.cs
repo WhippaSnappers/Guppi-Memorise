@@ -12,89 +12,88 @@ namespace Guppi_Memorise {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class SelfControlPage : ContentPage {
-
-        private Card[] cards;
-        private bool[] cardsRated;
+        private List<Card> cards;
+        private List<bool> cardsRated;
         private int selectedIndex;
 
-        public SelfControlPage(ObservableCollection<Card> cards) {
-            this.cards = new Card[cards.Count];
-            cardsRated = new bool[cards.Count];
-            
-            cards.CopyTo(this.cards, 0);
-            ShuffleDeck(this.cards);
+        public SelfControlPage(ObservableCollection<Card> cards)
+        {
             InitializeComponent();
+            
+            this.cards = new List<Card>(cards);
+            cardsRated = Enumerable.Repeat(false, cards.Count).ToList();
+            var rand = new Random();
+            this.cards = this.cards.OrderBy(x => rand.Next()).ToList();
             selectedIndex = 0;
-            setCard(0);
+            SetCard(0);
+            ToggleBtns();
         }
-
-        private void ShuffleDeck(Card[] cards) {
-            Random rnd = new Random();
-            for (int i = cards.Length - 1; i >= 1; i--) {
-                int index = rnd.Next(i + 1);
-                var temp = cards[index];
-                cards[index] = cards[i];
-                cards[i] = temp;
+        private void PrevBtn(object sender, EventArgs _)
+        {
+            if (selectedIndex > 0)
+            {
+                SetCard(--selectedIndex);
+                ToggleBtns();
             }
         }
-
-        private void Button_Clicked(object sender, EventArgs e) {
-            if (selectedIndex > 0) {
-                setCard(--selectedIndex);
-                toggleBtns();
+        private void NextBtn(object sender, EventArgs _)
+        {
+            if (selectedIndex < cards.Count - 1)
+            {
+                SetCard(++selectedIndex);
+                ToggleBtns();
             }
         }
-
-        private void Button_Clicked_1(object sender, EventArgs e) {
-            if (selectedIndex < cards.Length - 1) {
-                setCard(++selectedIndex);
-                toggleBtns();
-            }
-        }
-
-        private void CardTapped(object sender, MR.Gestures.TapEventArgs e) {
+        private void CardTapped(object sender, MR.Gestures.TapEventArgs _)
+        {
             var slChildren = ((sender as Frame).Content as StackLayout).Children;
             slChildren[0].IsVisible = !slChildren[0].IsVisible;
             slChildren[1].IsVisible = !slChildren[1].IsVisible;
         }
-
-        private void setCard(int index) {
+        private void SetCard(int index)
+        {
             var slChildren = (frame.Content as StackLayout).Children;
             (slChildren[0] as Label).Text = cards[index].Title;
             ((slChildren[1] as ScrollView).Content as Label).Text = cards[index].Text;
-            if (!cardsRated[index]) {
-                toggleRatingBtns(true);
-            }
+            ToggleRatingBtns(!cardsRated[index]);
         }
-
-        private void toggleBtns() {
-            if (selectedIndex == 0) {
+        private void ToggleBtns()
+        {
+            if (selectedIndex == 0)
+            {
                 prev.IsEnabled = false;
             }
-            if (selectedIndex == cards.Length - 1) {
-                next.IsEnabled = false;
-            }
-            if (selectedIndex > 0) {
+            if (selectedIndex > 0)
+            {
                 prev.IsEnabled = true;
             }
-            if (selectedIndex < cards.Length - 1) {
+            if (selectedIndex == cards.Count - 1 || !cardsRated[selectedIndex])
+            {
+                next.IsEnabled = false;
+            }
+            if (selectedIndex < cards.Count - 1 && cardsRated[selectedIndex])
+            {
                 next.IsEnabled = true;
             }
         }
-
-        private void RatingPlus(object sender, EventArgs e) {
+        private async void RatingPlus(object sender, EventArgs _)
+        {
             cards[selectedIndex].Rating++;
-            toggleRatingBtns(false);
+            await DB.UpdateCard(cards[selectedIndex]);
             cardsRated[selectedIndex] = true;
+            ToggleRatingBtns(false);
+            ToggleBtns();
         }
-
-        private void RatingMinus(object sender, EventArgs e) {
+        private async void RatingMinus(object sender, EventArgs _)
+        {
             cards[selectedIndex].Rating--;
-            toggleRatingBtns(false);
+            await DB.UpdateCard(cards[selectedIndex]);
             cardsRated[selectedIndex] = true;
+            ToggleRatingBtns(false);
+            ToggleBtns();
         }
-
-        private void toggleRatingBtns(bool flag) {
+        private void ToggleRatingBtns(bool flag)
+        {
             ratingMinus.IsEnabled = flag;
             ratingPlus.IsEnabled = flag;
         }

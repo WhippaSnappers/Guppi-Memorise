@@ -132,8 +132,8 @@
                     </ScrollView>
                 </StackLayout>
             </mr:Frame>
-            <Button Style="{StaticResource Default}" x:Name="prev" IsEnabled="False" Grid.Row="2" Grid.Column="0" Text="Назад" Clicked="Button_Clicked"/>
-            <Button Style="{StaticResource Default}" x:Name="next" Grid.Row="2" Grid.Column="1" Text="Вперед" Clicked="Button_Clicked_1"/>
+            <Button Style="{StaticResource Default}" x:Name="prev" IsEnabled="False" Grid.Row="2" Grid.Column="0" Text="Назад" Clicked="PrevBtn"/>
+            <Button Style="{StaticResource Default}" x:Name="next" Grid.Row="2" Grid.Column="1" Text="Вперед" Clicked="NextBtn"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
