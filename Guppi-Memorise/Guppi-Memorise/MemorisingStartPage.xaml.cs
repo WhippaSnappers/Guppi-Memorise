@@ -18,7 +18,11 @@ namespace Guppi_Memorise {
         }
 
         private void Button_Clicked(object sender, EventArgs e) {
-            Navigation.PushAsync(new MemorisingPage(parseUsersText(editor.Text)));
+            var mp = new MemorisingPage(parseUsersText(editor.Text));
+            mp.Disappearing += (_, __) => {
+                DisplayAlert("Ура", "Вы выучили этот текст! Если не можете его вспомнить, советуем запустить заучивание еще раз.", "Ок");
+            };
+            Navigation.PushAsync(mp);
         }
 
         private List<List<string>> parseUsersText(string text) {
@@ -27,6 +31,15 @@ namespace Guppi_Memorise {
             t.Select((x, i) => new { index = i, value = x }).GroupBy(x => x.index / 4).Select(x => x.Select(v => v.value).ToList());
             
             return t.Select((x, i) => new { index = i, value = x }).GroupBy(x => x.index / 4).Select(x => x.Select(v => v.value).ToList()).ToList();
+        }
+
+        private void editor_Completed(object sender, EventArgs e) {
+            if ((sender as Editor).Text.Length > 0) {
+                btn.IsEnabled = true;
+            }
+            else {
+                btn.IsEnabled = false;
+            }
         }
     }
 }

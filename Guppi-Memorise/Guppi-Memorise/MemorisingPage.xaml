@@ -10,6 +10,14 @@
                 <Setter Property="FontSize" Value="23"/>
                 <Setter Property="TextColor" Value="#012545"/>
             </Style>
+            <DataTemplate x:Key="wordTemplate">
+                <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" Margin="5, 5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PartTapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="{Binding}" FontFamily="Exo" FontSize="17"/>
+                </Frame>
+            </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -43,14 +51,14 @@
                 <Label x:Name="timer" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="EndAndExpand" FontSize="40" HorizontalTextAlignment="Center" Margin="0, 5, 0, 10" IsVisible="false"/>
                 <StackLayout HorizontalOptions="End" Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center">
                     <ImageButton x:Name="again" Source="{local:ImageResource Guppi-Memorise.Assets.againIcon.png}" BackgroundColor="Transparent" HeightRequest="40" Clicked="Again" IsEnabled="False"/>
-                    <Label Text="Нанова" FontSize="13" VerticalOptions="Center"/>
+                    <Label Text="Заново" FontSize="13" VerticalOptions="Center"/>
                 </StackLayout>
                 <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="2">
                     <ScrollView>
                         <StackLayout x:Name="window">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding}" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="21" Opacity="0"/>
+                                    <Label Text="{Binding}" FontFamily="Exo" HorizontalOptions="FillAndExpand" FontSize="17" Opacity="0"/>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
@@ -62,9 +70,9 @@
                             <DataTemplate>
                                 <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="LineTapped" NumberOfTapsRequired="1"/>
+                                        <TapGestureRecognizer Tapped="PartTapped" NumberOfTapsRequired="1"/>
                                     </Frame.GestureRecognizers>
-                                    <Label Text="{Binding}" FontFamily="Exo" FontSize="21"/>
+                                    <Label Text="{Binding}" FontFamily="Exo" FontSize="17"/>
                                 </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
