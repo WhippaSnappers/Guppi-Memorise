@@ -34,10 +34,10 @@ namespace Guppi_Memorise
         private void RenameDeck(object sender)
         {
             isRenaming = true;
-            var sl = (sender as Frame).Content as StackLayout;
-            (sl.Children[0] as Label).IsVisible = false;
-            (sl.Children[1] as Editor).IsVisible = true;
-            (sl.Children[1] as Editor).Focus();
+            var stkLayout = (sender as Frame).Content as StackLayout;
+            (stkLayout.Children[0] as Label).IsVisible = false;
+            (stkLayout.Children[1] as Editor).IsVisible = true;
+            (stkLayout.Children[1] as Editor).Focus();
         }
         private void RemoveDeck(Deck deck)
         {
@@ -55,7 +55,7 @@ namespace Guppi_Memorise
                 }
             }
         }
-        private void AddDeck(object sender, EventArgs e)
+        private void AddDeck(object sender, EventArgs _)
         {
             if (!isRenaming) {
                 var newDeck = new Deck();
@@ -71,7 +71,7 @@ namespace Guppi_Memorise
                 });
             }
         }
-        private async void Frame_LongPressed(object sender, MR.Gestures.LongPressEventArgs e)
+        private async void Frame_LongPressed(object sender, MR.Gestures.LongPressEventArgs _)
         {
             if (!isRenaming) {
                 Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
@@ -86,7 +86,7 @@ namespace Guppi_Memorise
                 }
             }
         }
-        private void Editor_Completed(object sender, EventArgs e)
+        private void NameEditorCompleted(object sender, EventArgs _)
         {
             Device.BeginInvokeOnMainThread(() =>
             {
@@ -98,10 +98,10 @@ namespace Guppi_Memorise
                 decks[curDeckIndex].Name = newName;
                 curDeck.Name = newName;
                 Task.Run(async () => await DB.UpdateDeck(curDeck));
-                var sl = (sender as Editor).Parent as StackLayout;
-                (sl.Children[0] as Label).Text = newName;
-                (sl.Children[0] as Label).IsVisible = true;
-                (sl.Children[1] as Editor).IsVisible = false;
+                var stkLayout = (sender as Editor).Parent as StackLayout;
+                (stkLayout.Children[0] as Label).Text = newName;
+                (stkLayout.Children[0] as Label).IsVisible = true;
+                (stkLayout.Children[1] as Editor).IsVisible = false;
                 isRenaming = false;
             });
         }

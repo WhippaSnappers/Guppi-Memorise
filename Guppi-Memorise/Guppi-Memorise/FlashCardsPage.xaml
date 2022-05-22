@@ -40,7 +40,7 @@
                             </Frame.Background>
                             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Label Text="{Binding Name}" ClassId="{Binding Id}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
-                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" MaxLength="20" TextColor="#012545" Text="{Binding Name}" ClassId="{Binding Id}" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="Editor_Completed"/>
+                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" MaxLength="20" TextColor="#012545" Text="{Binding Name}" ClassId="{Binding Id}" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="NameEditorCompleted"/>
                             </StackLayout>
                         </mr:Frame>
                     </DataTemplate>
