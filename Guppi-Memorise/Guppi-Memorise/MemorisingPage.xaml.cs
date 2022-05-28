@@ -58,13 +58,13 @@ namespace Guppi_Memorise
                     DisplayAlert("Инфо", "Ваша задача не изменилась, однако программа запомнила среднее время, за которое вы собирали отрывки, и теперь вам нужно снова собрать текст, уложившись в это время, таймер вы можете увидеть в верхней части экрана.", "Ок");
                     break;
                 case 4:
-                    DisplayAlert("Инфо", "Lorem ipsum dolor sit amet", "Ок");
+                    DisplayAlert("Инфо", "Задача усложнилась! Теперь в вашем тексте пропали случайные слова, и вам необходимо их вернуть на свои места.", "Ок");
                     break;
                 case 5:
-                    DisplayAlert("Инфо", "Lorem ipsum dolor sit amet", "Ок");
+                    DisplayAlert("Инфо", "Как и во втором уровне, здесь отрывки стали в два раза больше, а это означает, что вам нужно вставить больше слов!", "Ок");
                     break;
                 case 6:
-                    DisplayAlert("Инфо", "Lorem ipsum dolor sit amet", "Ок");
+                    DisplayAlert("Инфо", "Это последний уровень, так что он не из простых. Здесь вам так же нужно вернуть пропавшие слова, однако теперь вам еще и придется уложиться в таймер! На этом этапе, если вы не успеете за данное вам время, мы увеличим его на 3 секунды. Идея в том, чтобы вы научились не только быстро вспоминать нужные слова, но и повторять это несколько раз в связи с недостатком времени.", "Ок");
                     break;
             }
         }//кнопка инфо на каждом левеле
@@ -88,14 +88,15 @@ namespace Guppi_Memorise
                             time /= 2;
                         }
 
+                        //timer.Text = String.Format("{0:00}:{1:00}", --time / 60, time % 60);
                         Device.StartTimer(TimeSpan.FromSeconds(1), () =>
                         {
                             Device.BeginInvokeOnMainThread(() =>
                             {
                                 if (!isEnded)
                                 {
-                                    timer.Text = String.Format("{0:00}:{1:00}", time / 60, time % 60);
                                     time--;
+                                    timer.Text = String.Format("{0:00}:{1:00}", time / 60, time % 60);
                                 }
                             });
                             if (time == 0 && !isEnded)
@@ -196,6 +197,9 @@ namespace Guppi_Memorise
                                 if (level == 3 || level == 6)
                                 { //обнуление таймера
                                     int average = (timeArray[level - 3].Seconds + timeArray[level - 2].Seconds) / 2;
+                                    if (level == 6) {
+                                        average = average / 2;
+                                    }
                                     timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
                                 }
                             }
@@ -212,6 +216,7 @@ namespace Guppi_Memorise
                                 }
                                 else
                                 { //если последний левел, то выкидываем юзера со страницы, там через disappearing вызывается информационное окно с похвалой
+                                    MemorisingStartPage.isLearned = true;
                                     Navigation.PopAsync();
                                 }
                             }

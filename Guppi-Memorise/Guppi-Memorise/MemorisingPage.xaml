@@ -11,12 +11,14 @@
                 <Setter Property="TextColor" Value="#012545"/>
             </Style>
             <DataTemplate x:Key="wordTemplate">
-                <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" Margin="5, 5">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PartTapped" NumberOfTapsRequired="1"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding}" FontFamily="Exo" FontSize="17"/>
-                </Frame>
+                <StackLayout Padding="5, 5">
+                    <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PartTapped" NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="{Binding}" FontFamily="Exo" FontSize="17"/>
+                    </Frame>
+                </StackLayout>
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>

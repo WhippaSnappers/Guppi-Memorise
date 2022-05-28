@@ -50,7 +50,7 @@
     <PackageReference Include="MR.Gestures" Version="2.2.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
