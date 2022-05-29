@@ -21,7 +21,6 @@ namespace Guppi_Memorise
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; } = "Новая колода";
-        public string AuthorName { get; set; }
     }
     public static class DB
     {
