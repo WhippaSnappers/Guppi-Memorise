@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.ComponentModel;
 
 namespace Guppi_Memorise
 {
@@ -71,7 +67,7 @@ namespace Guppi_Memorise
                 });
             }
         }
-        private async void Frame_LongPressed(object sender, MR.Gestures.LongPressEventArgs _)
+        private async void DeckDoubleTapped(object sender, EventArgs _)
         {
             if (!isRenaming) {
                 Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();

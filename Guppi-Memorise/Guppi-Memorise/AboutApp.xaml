@@ -7,7 +7,6 @@
     </NavigationPage.TitleView>
     <StackLayout VerticalOptions="Start">
         <Label FontSize="35" Margin="0, 30, 0, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
-        <!-- <WebView x:Name="wv" WidthRequest="150" HeightRequest="150"></WebView> -->
         <Label FontSize="25" Padding="10, 0" Margin="0, 0, 0, 30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Exo">
             Приложение, помогающее заучивать тексты и термины.
         </Label>
@@ -27,7 +26,9 @@
                 </Label>
             </StackLayout>
         </ScrollView>
-        <Label FontSize="25" Margin="0, 30" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Версия: Alpha 0.1</Label>
-        <Label FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">2022 год</Label>
+        <StackLayout Margin="0, 30">
+            <Label FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Версия: Alpha 0.1</Label>
+            <Label FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">2022 год</Label>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
