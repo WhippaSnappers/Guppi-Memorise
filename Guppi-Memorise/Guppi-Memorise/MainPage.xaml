@@ -7,9 +7,9 @@
         <Label Text="Guppi Memorise" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
-    <StackLayout Padding="10">
-        <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" Margin="0, 25"/>
-        <Grid HorizontalOptions="CenterAndExpand">
+    <StackLayout Padding="10" VerticalOptions="Center">
+        <Label Text="Добро пожаловать!" FontSize="30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontFamily="Russo One" Margin="0, 0, 0, 25"/>
+        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="180"/>
