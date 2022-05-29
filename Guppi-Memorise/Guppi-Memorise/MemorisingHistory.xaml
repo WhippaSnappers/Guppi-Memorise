@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Guppi_Memorise.MemorisingStartPage"
-             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+             x:Class="Guppi_Memorise.MemorisingHistory">
+
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="CornerRadius" Value="5"/>
@@ -37,23 +37,31 @@
     </ContentPage.Resources>
 
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Заучивание" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
-            <Image HorizontalOptions="EndAndExpand" Margin="0, 0, 15, 0" VerticalOptions="Center" HeightRequest="30"  Source="{local:ImageResource Guppi-Memorise.Assets.history.png}">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OpenHistory" NumberOfTapsRequired="1"/>
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
+        <Label Text="История" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <FlexLayout Direction="Column" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" AlignContent="Center" JustifyContent="Center" Padding="15">
-            <Label Text="Напишите или вставьте текст" FontSize="22" FontFamily="Russo One" TextColor="#012545" HorizontalTextAlignment="Center"/>
-            <Frame BorderColor="#012545" CornerRadius="5" HeightRequest="300" BackgroundColor="#f0f0f0" Padding="10" Margin="0, 15">
-                <Editor x:Name="editor" HorizontalOptions="Fill" VerticalOptions="Fill" FontSize="17" FontFamily="Exo" TextColor="#012545" Completed="TextEditorCompleted"/>
-            </Frame>
-            <Button x:Name="btn" Text="Готово!" Clicked="ReadyButtonClicked"/>
-        </FlexLayout>
+        <StackLayout Padding="15, 0" >
+            <ScrollView>
+                <StackLayout x:Name="layout" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="5" BorderColor="#012545" HeightRequest="300" HorizontalOptions="FillAndExpand" Padding="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Repeat" NumberOfTapsRequired="2"/>
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label Text="{Binding text}" FontSize="17" TextColor="#012545" FontFamily="Exo"/>
+                                    <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" Text="{Binding time, StringFormat='Выучено за {0}'}" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Margin="0, 15">
+                <Button x:Name="clear" Text="Очистить историю" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="ClearHistory" HeightRequest="60"/>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

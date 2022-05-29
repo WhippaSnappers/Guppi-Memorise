@@ -34,7 +34,7 @@ namespace Guppi_Memorise
             };
             Navigation.PushAsync(mp);
         }
-        private List<List<string>> ParseUsersText(string text)
+        public static List<List<string>> ParseUsersText(string text)
         {
             List<string> t = text.Split('\n').Where(i => i != "").ToList();
 
@@ -62,7 +62,7 @@ namespace Guppi_Memorise
             }
         }
 
-        private bool isPoem(List<string> text) {
+        private static bool isPoem(List<string> text) {
             bool isPoem = true;
             foreach (var line in text) {
                 if (line.Length >= 50) {
@@ -83,6 +83,10 @@ namespace Guppi_Memorise
             {
                 btn.IsEnabled = false;
             }
+        }
+
+        private void OpenHistory(object sender, EventArgs _) {
+            Navigation.PushAsync(new MemorisingHistory());
         }
     }
 }

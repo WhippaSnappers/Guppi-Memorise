@@ -33,6 +33,9 @@ namespace Guppi_Memorise
         private List<TimeSpan> timeArray; //список, в котором лежит среднее время прохождения двух этапов на каждом уровне
         private DateTime startTime; //время начала прохождения этапа, используется для вычисления времени прохождения
 
+        private TimeSpan memorisingTime;
+        private DateTime memorisingTimeStart;
+
         public MemorisingPage(List<List<string>> str)
         {
             InitializeComponent();
@@ -43,6 +46,7 @@ namespace Guppi_Memorise
             timeArray = new List<TimeSpan>(6);
             bindExtract(startText[currentExtract]);
 
+            memorisingTimeStart = DateTime.Now;
         }
 
         private void OpenInfo(object sender, EventArgs _)
@@ -217,6 +221,7 @@ namespace Guppi_Memorise
                                 else
                                 { //если последний левел, то выкидываем юзера со страницы, там через disappearing вызывается информационное окно с похвалой
                                     MemorisingStartPage.isLearned = true;
+                                    memorisingTime = DateTime.Now - memorisingTimeStart; //вот это время в бд положи
                                     Navigation.PopAsync();
                                 }
                             }
