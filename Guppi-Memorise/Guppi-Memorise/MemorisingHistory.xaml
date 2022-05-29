@@ -41,14 +41,14 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <StackLayout Padding="15, 0" >
-            <ScrollView>
+        <StackLayout>
+            <ScrollView Padding="15, 15" >
                 <StackLayout x:Name="layout" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <Frame CornerRadius="5" BorderColor="#012545" HeightRequest="300" HorizontalOptions="FillAndExpand" Padding="10">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Repeat" NumberOfTapsRequired="2"/>
+                                    <TapGestureRecognizer Tapped="Repeat" NumberOfTapsRequired="1"/>
                                 </Frame.GestureRecognizers>
                                 <StackLayout>
                                     <Label Text="{Binding text}" FontSize="17" TextColor="#012545" FontFamily="Exo"/>
@@ -59,7 +59,7 @@
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
-            <StackLayout HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Margin="0, 15">
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Margin="15, 15">
                 <Button x:Name="clear" Text="Очистить историю" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="ClearHistory" HeightRequest="60"/>
             </StackLayout>
         </StackLayout>
