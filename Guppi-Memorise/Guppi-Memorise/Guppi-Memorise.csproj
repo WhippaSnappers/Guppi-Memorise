@@ -46,7 +46,6 @@
     <EmbeddedResource Include="Assets\infoIcon.png" />
     <EmbeddedResource Include="Assets\Lobster.ttf" />
     <EmbeddedResource Include="Assets\plusIcon.png" />
-    <EmbeddedResource Include="Assets\profile-icon-rev.png" />
     <EmbeddedResource Include="Assets\profile-icon.png" />
     <EmbeddedResource Include="Assets\Russo One.ttf" />
     <EmbeddedResource Include="Assets\stats-icon-rev.png" />

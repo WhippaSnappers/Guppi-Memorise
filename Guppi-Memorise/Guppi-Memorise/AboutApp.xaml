@@ -6,9 +6,27 @@
         <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
     <StackLayout Padding="10" VerticalOptions="Start">
-        <Label FontSize="35" Margin="0, 40" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
+        <Label FontSize="35" Margin="0, 30, 0, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
         <!-- <WebView x:Name="wv" WidthRequest="150" HeightRequest="150"></WebView> -->
-        <Label FontSize="30" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Exo">Приложение для заучивания текстов и терминов. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Label>
+        <Label FontSize="25" Padding="10, 0" Margin="0, 0, 0, 30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Exo">
+            Приложение, помогающее заучивать тексты и термины.
+        </Label>
+        <ScrollView>
+            <StackLayout>
+                <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
+                    Вам доступны флэш-карточки и режим заучивания текстов.
+                </Label>
+                <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
+                    Используйте карточки для записи терминов и их определений. Нажмите на карточку один раз, чтобы увидеть ее описание. Двойное нажатие откроет меню с опциями. Проверить, как хорошо Вы запомнили термины, можно с помощью режима самопроверки.
+                </Label>
+                <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
+                    В режиме заучивания текстов Вы будете динамически восстанавливать текст, пока не пройдете все уровни сложности. Вы можете либо добавить новый текст, либо выбрать текст из своей истории. Заучивать тексты с помощью режима динамического восстановления легче и продуктивнее.
+                </Label>
+                <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
+                    Приятного заучивания!
+                </Label>
+            </StackLayout>
+        </ScrollView>
         <Label FontSize="25" Margin="0, 30" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Версия: Alpha 0.1</Label>
         <Label FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Exo">2022 год</Label>
     </StackLayout>
