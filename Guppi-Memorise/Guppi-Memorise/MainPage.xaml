@@ -43,7 +43,7 @@
                     </LinearGradientBrush>
                 </ImageButton.Background>
             </ImageButton>
-            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon-rev.png}" Clicked="AboutAppButton">
+            <ImageButton IsEnabled="True" CornerRadius="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.stats-icon-rev.png}" Clicked="ProfileButton">
                 <ImageButton.BackgroundColor>
                     <!-- Necessary crutch -->
                     <Color>White</Color>
@@ -55,7 +55,7 @@
                     </LinearGradientBrush>
                 </ImageButton.Background>
             </ImageButton>
-            <ImageButton IsEnabled="True" CornerRadius="5" Grid.Column="1" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.profile-icon-rev.png}" Clicked="ProfileButton">
+            <ImageButton IsEnabled="True" CornerRadius="5" Grid.Column="1" Grid.Row="1" Source="{local:ImageResource Guppi-Memorise.Assets.aboutapp-icon-rev.png}" Clicked="AboutAppButton">
                 <ImageButton.BackgroundColor>
                     <!-- Necessary crutch -->
                     <Color>White</Color>

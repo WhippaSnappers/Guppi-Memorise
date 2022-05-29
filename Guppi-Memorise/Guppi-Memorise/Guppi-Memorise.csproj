@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\aboutapp-icon-rev.png" />
     <None Remove="Assets\againIcon.png" />
     <None Remove="Assets\avatar.png" />
     <None Remove="Assets\book-icon-rev.png" />
@@ -27,6 +28,10 @@
     <None Remove="Assets\Russo One.ttf" />
     <None Remove="Assets\stats-icon-rev.png" />
     <None Remove="Assets\stats-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\aboutapp-icon-rev.png" />
   </ItemGroup>
 
   <ItemGroup>
