@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +11,6 @@ namespace Guppi_Memorise
 
     public partial class DeckPage : ContentPage
     {
-
         private Deck deck;
         private bool isRenaming = false;
         private bool isClicked = false;
@@ -43,7 +39,7 @@ namespace Guppi_Memorise
                 }
             });
         }
-        private void CardTapped(object sender, MR.Gestures.TapEventArgs _)
+        private void CardTapped(object sender, EventArgs _)
         {
             if (!isRenaming)
             {
@@ -57,7 +53,7 @@ namespace Guppi_Memorise
                 textLabelSV.IsVisible = !textLabelSV.IsVisible;
             }
         }
-        private async void CardLongPress(object sender, MR.Gestures.LongPressEventArgs _)
+        private async void CardDoubleTapped(object sender, EventArgs _)
         {
             var cardFrame = sender as Frame;
             var absLayout = cardFrame.Content as AbsoluteLayout;
@@ -102,7 +98,7 @@ namespace Guppi_Memorise
             if (!isRenaming)
             {
                 isRenaming = true;
-                // Improve threading (probably done)
+                // Threading needs to be improved (probably done)
                 var newCard = new Card();
                 Task.Run(async () =>
                 {

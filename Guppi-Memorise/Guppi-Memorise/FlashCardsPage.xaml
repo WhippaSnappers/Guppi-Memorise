@@ -20,15 +20,15 @@
         <ResourceDictionary>
             <Style x:Key="flexElements" TargetType="Frame">
                 <Setter Property="FlexLayout.Basis" Value="50%"/>
-                <Setter Property="HeightRequest" Value="150"/>
-                <Setter Property="Margin" Value="4, 10, 4, 0"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="Margin" Value="5, 5, 5, 5"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
-            <FlexLayout x:Name="layout" Direction="Row" AlignContent="Start" Wrap="Wrap" Padding="4, 0">
+        <ScrollView Padding="5, 5">
+            <FlexLayout x:Name="layout" Wrap="Wrap" AlignItems="Center" AlignContent="SpaceBetween">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Frame CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding Id}">

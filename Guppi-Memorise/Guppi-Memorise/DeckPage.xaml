@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.DeckPage"
-             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise"
-             xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures">
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+    <!--xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"-->
 
     <ContentPage.Resources>
         <Style TargetType="Button">
@@ -50,7 +50,11 @@
                 <StackLayout x:Name="layout" Padding="15, 0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <mr:Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding Id}" Tapped="CardTapped" LongPressed="CardLongPress">
+                            <Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" Margin="0, 5" ClassId="{Binding Id}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CardTapped"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="CardDoubleTapped"/>
+                                </Frame.GestureRecognizers>
                                 <Frame.Background>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#00CCAD" Offset="0.0"/>
@@ -70,7 +74,7 @@
                                         </ScrollView>
                                     </StackLayout>
                                 </AbsoluteLayout>
-                            </mr:Frame>
+                            </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
