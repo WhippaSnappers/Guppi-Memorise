@@ -22,6 +22,13 @@ namespace Guppi_Memorise
         public int Id { get; set; }
         public string Name { get; set; } = "Новая колода";
     }
+    public class Text
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Body { get; set; }
+        public string Time { get; set; }
+    }
     public static class DB
     {
         static SQLiteAsyncConnection db = null;
