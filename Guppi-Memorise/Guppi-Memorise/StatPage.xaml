@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Guppi_Memorise.StatPage">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Exo"/>
+            <Setter Property="TextColor" Value="#012545"/>
+            <Setter Property="FontSize" Value="23"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <Label Text="Статистика" FontSize="20" TextColor="#012545" FontFamily="Russo One"/>
+    </NavigationPage.TitleView>
+
+    <StackLayout Padding="20" Margin="0, 50, 0, 0">
+        <Label Text="За время использования приложения вы успели" FontFamily="Russo One" FontSize="27" TextColor="#012545" HorizontalTextAlignment="Center"/>
+        <Grid Margin="0, 20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Создать колод:" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+            <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#012545" CornerRadius="2"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="Создать флэш-карточек:" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+            <BoxView Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="#012545" CornerRadius="2"/>
+            <Label Grid.Row="4" Grid.Column="0" Text="Загрузить текст для заучивания:" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+            <BoxView Grid.Row="5" Grid.ColumnSpan="2" BackgroundColor="#012545" CornerRadius="2"/>
+            <Label Grid.Row="6" Grid.Column="0" Text="Выучить текстов:" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="6" Grid.Column="1" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+            <BoxView Grid.Row="7" Grid.ColumnSpan="2" BackgroundColor="#012545" CornerRadius="2"/>
+            <Label Grid.Row="8" Grid.Column="0" Text="Выучить текст всего за" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="8" Grid.Column="1" Text="00:01:12" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

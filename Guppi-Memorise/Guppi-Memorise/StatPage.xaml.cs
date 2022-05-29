@@ -10,13 +10,13 @@ using System.Diagnostics;
 namespace Guppi_Memorise
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfilePage : ContentPage
+    public partial class StatPage : ContentPage
     {
         private int createDecks = 0;
         private int createFlashCards = 0;
         private int downloadText = 0;
         private int shareDecks = 0;
-        public ProfilePage()
+        public StatPage()
         {
             InitializeComponent();
 

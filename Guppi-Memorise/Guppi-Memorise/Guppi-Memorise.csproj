@@ -63,6 +63,10 @@
     <Compile Update="MemorisingStartPage.xaml.cs">
       <DependentUpon>MemorisingStartPage.xaml</DependentUpon>
     </Compile>
+
+    <Compile Update="StatPage.xaml.cs">
+      <DependentUpon>StatPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

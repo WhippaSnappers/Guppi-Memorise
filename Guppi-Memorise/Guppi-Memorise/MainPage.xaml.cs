@@ -19,7 +19,7 @@ namespace Guppi_Memorise
         }
         public async void ProfileButton(object _, EventArgs __)
         {
-            await Navigation.PushAsync(new ProfilePage());
+            await Navigation.PushAsync(new StatPage());
         }
         public async void AboutAppButton(object _, EventArgs __)
         {
