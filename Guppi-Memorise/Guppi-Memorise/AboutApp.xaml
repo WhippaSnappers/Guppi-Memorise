@@ -5,13 +5,13 @@
     <NavigationPage.TitleView>
         <Label Text="О приложении" FontSize="20" TextColor="#012545" FontFamily="Russo One" VerticalOptions="Center"/>
     </NavigationPage.TitleView>
-    <StackLayout Padding="10" VerticalOptions="Start">
+    <StackLayout VerticalOptions="Start">
         <Label FontSize="35" Margin="0, 30, 0, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Russo One">Guppi Memorise</Label>
         <!-- <WebView x:Name="wv" WidthRequest="150" HeightRequest="150"></WebView> -->
         <Label FontSize="25" Padding="10, 0" Margin="0, 0, 0, 30" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Exo">
             Приложение, помогающее заучивать тексты и термины.
         </Label>
-        <ScrollView>
+        <ScrollView Padding="10">
             <StackLayout>
                 <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
                     Вам доступны флэш-карточки и режим заучивания текстов.
