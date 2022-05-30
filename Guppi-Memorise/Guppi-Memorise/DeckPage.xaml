@@ -78,7 +78,7 @@
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="10" Spacing="10">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="10" Spacing="10">
                 <Button x:Name="sort" IsEnabled="False" Text="Сортировать..." CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="SortButton" HeightRequest="55"/>
                 <Button x:Name="selfControl" IsEnabled="False" Text="Самопроверка" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="SelfControlButton" HeightRequest="55"/>
             </StackLayout>

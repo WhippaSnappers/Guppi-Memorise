@@ -84,22 +84,35 @@ namespace Guppi_Memorise
         }
         private void NameEditorCompleted(object sender, EventArgs _)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            var stkLayout = (sender as Editor).Parent as StackLayout;
+            if (string.IsNullOrEmpty((sender as Editor).Text))
             {
-                string idRaw = (sender as Editor).ClassId;
-                int id = Int32.Parse(idRaw);
-                string newName = (sender as Editor).Text;
-                Deck curDeck = decks.Where(i => i.Id == id).FirstOrDefault();
-                int curDeckIndex = decks.IndexOf(curDeck);
-                decks[curDeckIndex].Name = newName;
-                curDeck.Name = newName;
-                Task.Run(async () => await DB.UpdateDeck(curDeck));
-                var stkLayout = (sender as Editor).Parent as StackLayout;
-                (stkLayout.Children[0] as Label).Text = newName;
-                (stkLayout.Children[0] as Label).IsVisible = true;
-                (stkLayout.Children[1] as Editor).IsVisible = false;
-                isRenaming = false;
-            });
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    (sender as Editor).Text = (stkLayout.Children[0] as Label).Text;
+                    (stkLayout.Children[0] as Label).IsVisible = true;
+                    (stkLayout.Children[1] as Editor).IsVisible = false;
+                    isRenaming = false;
+                });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    string idRaw = (sender as Editor).ClassId;
+                    int id = Int32.Parse(idRaw);
+                    string newName = (sender as Editor).Text;
+                    Deck curDeck = decks.Where(i => i.Id == id).FirstOrDefault();
+                    int curDeckIndex = decks.IndexOf(curDeck);
+                    decks[curDeckIndex].Name = newName;
+                    curDeck.Name = newName;
+                    Task.Run(async () => await DB.UpdateDeck(curDeck));
+                    (stkLayout.Children[0] as Label).Text = newName;
+                    (stkLayout.Children[0] as Label).IsVisible = true;
+                    (stkLayout.Children[1] as Editor).IsVisible = false;
+                    isRenaming = false;
+                });
+            }
         }
     }
 }
