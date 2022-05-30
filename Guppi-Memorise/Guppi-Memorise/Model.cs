@@ -29,6 +29,14 @@ namespace Guppi_Memorise
         public string Body { get; set; }
         public string Time { get; set; }
     }
+    public class UserStats
+    {
+        public int DecksCreated { get; set; }
+        public int FlashCardsCreated { get; set; }
+        public int TextsEntered { get; set; }
+        public int TextsLearned { get; set; }
+        public string FastestLearningTime { get; set; }
+    }
     public static class DB
     {
         static SQLiteAsyncConnection db = null;
