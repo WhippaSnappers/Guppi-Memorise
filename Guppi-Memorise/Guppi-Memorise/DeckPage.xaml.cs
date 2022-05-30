@@ -59,37 +59,42 @@ namespace Guppi_Memorise
             var absLayout = cardFrame.Content as AbsoluteLayout;
             var stkLayout = absLayout.Children[1] as StackLayout;
             var titleLabel = stkLayout.Children[0] as Label;
+            
             if (!isRenaming)
             {
-                if (titleLabel.IsVisible)
+                Card tappedCard = cards.Where(i => i.Id == Int32.Parse(cardFrame.ClassId)).FirstOrDefault();
+                string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать", "Изменить текст");
+                switch (res)
                 {
-                    Card tappedCard = cards.Where(i => i.Id == Int32.Parse(cardFrame.ClassId)).FirstOrDefault();
-                    string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать");
-                    switch (res)
-                    {
-                        case "Удалить":
-                            await DB.RemoveCard(tappedCard);
-                            Device.BeginInvokeOnMainThread(() =>
+                    case "Удалить":
+                        await DB.RemoveCard(tappedCard);
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            cards.Remove(tappedCard);
+                            if (cards.Count < 2)
                             {
-                                cards.Remove(tappedCard);
-                                if (cards.Count < 2)
-                                {
-                                    selfControl.IsEnabled = false;
-                                    sort.IsEnabled = false;
-                                }
-                            });
-                            break;
-                        case "Переименовать":
-                            isRenaming = true;
-                            var cardView = sender as Frame;
-                            RenameCardToggle(cardView);
-                            break;
-                    }
-                }
-                else
-                {
-                    isRenaming = true;
-                    ChangeTextToggle(cardFrame);
+                                selfControl.IsEnabled = false;
+                                sort.IsEnabled = false;
+                            }
+                        });
+                        break;
+                    case "Переименовать":
+                        if (!titleLabel.IsVisible)
+                        {
+                            CardTapped(sender, EventArgs.Empty);
+                        }
+                        isRenaming = true;
+                        var cardView = sender as Frame;
+                        RenameCardToggle(cardView);
+                        break;
+                    case "Изменить текст":
+                        if (titleLabel.IsVisible)
+                        {
+                            CardTapped(sender, EventArgs.Empty);
+                        }
+                        isRenaming = true;
+                        ChangeTextToggle(cardFrame);
+                        break;
                 }
             }
         }
@@ -137,20 +142,30 @@ namespace Guppi_Memorise
         private void TitleEditorCompleted(object sender, EventArgs _)
         {
             var cardFrame = (((sender as Editor).Parent as StackLayout).Parent as AbsoluteLayout).Parent as Frame;
-            var idRaw = cardFrame.ClassId;
-            int id = int.Parse(idRaw);
-            Card curCard = cards.Where(i => i.Id == id).FirstOrDefault();
-            int cardIndex = cards.IndexOf(curCard);
-            var newTitle = (sender as Editor).Text;
-            cards[cardIndex].Title = newTitle;
-            curCard.Title = newTitle;
-            Task.Run(async () => await DB.UpdateCard(curCard));
             var absLayout = cardFrame.Content as AbsoluteLayout;
             var stkLayout = absLayout.Children[1] as StackLayout;
             var titleLabel = stkLayout.Children[0] as Label;
-            titleLabel.Text = newTitle;
-            RenameCardToggle(cardFrame);
-            isRenaming = false;
+
+            if (string.IsNullOrWhiteSpace((sender as Editor).Text))
+            {
+                (sender as Editor).Text = titleLabel.Text;
+                RenameCardToggle(cardFrame);
+                isRenaming = false;
+            }
+            else
+            {
+                var idRaw = cardFrame.ClassId;
+                int id = int.Parse(idRaw);
+                Card curCard = cards.Where(i => i.Id == id).FirstOrDefault();
+                int cardIndex = cards.IndexOf(curCard);
+                var newTitle = (sender as Editor).Text;
+                cards[cardIndex].Title = newTitle;
+                curCard.Title = newTitle;
+                Task.Run(async () => await DB.UpdateCard(curCard));
+                titleLabel.Text = newTitle;
+                RenameCardToggle(cardFrame);
+                isRenaming = false;
+            }
         }
         private void TextEditorCompleted(object sender, EventArgs _)
         {
@@ -159,17 +174,27 @@ namespace Guppi_Memorise
             var stkLayout = absLayout.Children[1] as StackLayout;
             var textLabel = (stkLayout.Children[2] as ScrollView).Content as Label;
             var textEditor = (stkLayout.Children[3] as ScrollView).Content as Editor;
-            var idRaw = cardFrame.ClassId;
-            int id = int.Parse(idRaw);
-            Card curCard = cards.Where(i => i.Id == id).FirstOrDefault();
-            int cardIndex = cards.IndexOf(curCard);
-            var newText = textEditor.Text;
-            cards[cardIndex].Text = newText;
-            curCard.Text = newText;
-            Task.Run(async () => await DB.UpdateCard(curCard));
-            textLabel.Text = newText;
-            ChangeTextToggle(cardFrame);
-            isRenaming = false;
+
+            if (string.IsNullOrWhiteSpace(textEditor.Text))
+            {
+                textEditor.Text = textLabel.Text;
+                ChangeTextToggle(cardFrame);
+                isRenaming = false;
+            }
+            else
+            {
+                var idRaw = cardFrame.ClassId;
+                int id = int.Parse(idRaw);
+                Card curCard = cards.Where(i => i.Id == id).FirstOrDefault();
+                int cardIndex = cards.IndexOf(curCard);
+                var newText = textEditor.Text;
+                cards[cardIndex].Text = newText;
+                curCard.Text = newText;
+                Task.Run(async () => await DB.UpdateCard(curCard));
+                textLabel.Text = newText;
+                ChangeTextToggle(cardFrame);
+                isRenaming = false;
+            }
         }
         private void ChangeTextToggle(Frame cardFrame)
         {

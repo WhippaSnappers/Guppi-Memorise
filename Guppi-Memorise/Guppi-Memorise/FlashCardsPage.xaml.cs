@@ -85,7 +85,7 @@ namespace Guppi_Memorise
         private void NameEditorCompleted(object sender, EventArgs _)
         {
             var stkLayout = (sender as Editor).Parent as StackLayout;
-            if (string.IsNullOrEmpty((sender as Editor).Text))
+            if (string.IsNullOrWhiteSpace((sender as Editor).Text))
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
