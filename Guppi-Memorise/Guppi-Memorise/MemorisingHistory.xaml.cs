@@ -15,7 +15,10 @@ namespace Guppi_Memorise
         public MemorisingHistory()
         {
             InitializeComponent();
-
+            RefreshTextsCollection();
+        }
+        private void RefreshTextsCollection()
+        {
             Task.Run(async () =>
             {
                 // await DB.AddDummyTexts();
@@ -36,6 +39,7 @@ namespace Guppi_Memorise
                     DisplayAlert("Ура", "Вы повторили свой успех! Если необходимо, можете попробовать еще раз.", "Ок");
                     MemorisingStartPage.isLearned = false;
                 }
+                RefreshTextsCollection();
             };
             Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
         }//ура костыль (really?)

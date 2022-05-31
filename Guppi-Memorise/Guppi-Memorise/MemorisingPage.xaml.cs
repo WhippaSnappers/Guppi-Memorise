@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,36 +14,33 @@ namespace Guppi_Memorise
     {
         public List<List<string>> startText { get; set; } //оригинал переданного текста со страницы ввода
         public List<List<string>> boundText; //список, который привязывается к лэйаутам на уровнях 1-3
-
         private List<List<string>> standardText; //список-образец, по нему сравнивается кликнутое слово со словом, на месте которого стоит пропуск
         private List<string> boundTextWords; //список, который привязывается к лэйауту текста с пропусками на уровнях 4-6
         private List<string> missedWords; //список с пропавшими словами
         private List<int> missedWordsIndexes; //список с индексами пропавших слов относительно начала строфы
-
         private bool isEnded = false; //флаг для определения того, закончил игрок этап или еще нет, используется для мгновенной остановки таймера
-
         private int currentPart = 0; //номер слова или строки, которая сейчас ожидается от игрока, считается с начала строфы
         private int currentExtract = 0; //номер строфы, которая сейчас отображается
         private int mistakes = 0; //количество ошибок
         private int done = 0; //количество успехов на одном левеле
         private int level = 1; //удивительно, но номер уровня
-
         private List<TimeSpan> timeArray; //список, в котором лежит среднее время прохождения двух этапов на каждом уровне
         private DateTime startTime; //время начала прохождения этапа, используется для вычисления времени прохождения
-
         private TimeSpan memorisingTime;
         private DateTime memorisingTimeStart;
+        private Text userText;
 
         public MemorisingPage(Text userText)
         {
             InitializeComponent();
+            this.userText = userText;
             var parsedText = TextUtils.ParseUsersText(userText.Body);
             startText = parsedText;
             boundText = parsedText;
             missedWords = new List<string>();
             boundTextWords = JoinText(boundText);
             timeArray = new List<TimeSpan>(6);
-            bindExtract(startText[currentExtract]);
+            BindExtract(startText[currentExtract]);
             memorisingTimeStart = DateTime.Now;
         }
         private void OpenInfo(object sender, EventArgs _)
@@ -68,7 +66,6 @@ namespace Guppi_Memorise
                     break;
             }
         }//кнопка инфо на каждом левеле
-
         private void PartTapped(object sender, EventArgs _)
         { //функция клика по строке или слову тут не логика а пизда какая-то
 
@@ -158,11 +155,11 @@ namespace Guppi_Memorise
                         {
                             if (level <= 3)
                             {
-                                bindExtract(boundText[currentExtract]);
+                                BindExtract(boundText[currentExtract]);
                             }
                             else
                             {
-                                bindWords(boundTextWords[currentExtract]);
+                                BindWords(boundTextWords[currentExtract]);
                             }
                         }
 
@@ -183,11 +180,11 @@ namespace Guppi_Memorise
 
                                 if (level <= 3)
                                 {
-                                    bindExtract(boundText[currentExtract]);
+                                    BindExtract(boundText[currentExtract]);
                                 }
                                 else
                                 {
-                                    bindWords(boundTextWords[currentExtract]);
+                                    BindWords(boundTextWords[currentExtract]);
                                 }
 
 
@@ -217,8 +214,14 @@ namespace Guppi_Memorise
                                 else
                                 { //если последний левел, то выкидываем юзера со страницы, там через disappearing вызывается информационное окно с похвалой
                                     MemorisingStartPage.isLearned = true;
-                                    memorisingTime = DateTime.Now - memorisingTimeStart; //вот это время в бд положи
-                                    Navigation.PopAsync();
+                                    memorisingTime = DateTime.Now - memorisingTimeStart;
+                                    var timeString = string.Format("{0:00}:{1:00}:{2:00}", memorisingTime.Hours, memorisingTime.Minutes, memorisingTime.Seconds);
+                                    userText.Time = timeString;
+                                    Task.Run(async () =>
+                                    {
+                                        await DB.UpdateText(userText);
+                                        Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
+                                    });
                                 }
                             }
 
@@ -238,12 +241,10 @@ namespace Guppi_Memorise
                 }
             }
         }
-
         private void Again(object sender, EventArgs _)
         { //функция для кнопки нанова
             Reset();
         }
-
         private void Reset()
         { //обнуляет прогресс уровня
             currentExtract = 0;
@@ -263,7 +264,7 @@ namespace Guppi_Memorise
 
             if (level <= 3)
             {
-                bindExtract(boundText[currentExtract]);
+                BindExtract(boundText[currentExtract]);
                 foreach (var item in window.Children)
                 {
                     item.Opacity = 0;
@@ -271,7 +272,7 @@ namespace Guppi_Memorise
             }
             else
             {
-                bindWords(boundTextWords[currentExtract]);
+                BindWords(boundTextWords[currentExtract]);
             }
 
             if (level == 3 || level == 6) 
@@ -289,22 +290,11 @@ namespace Guppi_Memorise
                 item.Opacity = 1;
             }
         }
-
         private List<string> ShuffleParts(List<string> text) 
         { //перемешивает элементы списка
-            string[] lines = new string[text.Count];
-            text.CopyTo(lines);
-            Random rnd = new Random();
-            for (int i = lines.Length - 1; i >= 1; i--) 
-            {
-                int index = rnd.Next(i + 1);
-                var temp = lines[index];
-                lines[index] = lines[i];
-                lines[i] = temp;
-            }
-            return lines.ToList();
+            var rand = new Random();
+            return text.OrderBy(i => rand.Next()).ToList();
         }
-
         private List<List<string>> JoinExtracts (List<List<string>> lines) 
         { //соединяет по две строфы в одну для 2 или 5 уровней
             List<List<string>> result = new List<List<string>>();
@@ -321,7 +311,6 @@ namespace Guppi_Memorise
             }
             return result;
         }
-
         private void NextLevel() 
         { //осуществляет переход на следующий уровень, изменяя окно соответствующим образом на основе переменной levelи обнуляя все переменные прогресса уровня
             currentExtract = 0;
@@ -332,11 +321,11 @@ namespace Guppi_Memorise
             {
                 case 2:
                     boundText = JoinExtracts(startText);
-                    bindExtract(boundText[currentExtract]);
+                    BindExtract(boundText[currentExtract]);
                     break;
                 case 3:
                     boundText = startText;
-                    bindExtract(boundText[currentExtract]);
+                    BindExtract(boundText[currentExtract]);
                     int averageLines = (timeArray[0].Seconds + timeArray[1].Seconds) / 2;
                     timer.Text = String.Format("{0:00}:{1:00}", averageLines / 60, averageLines % 60);
                     timer.IsVisible = true;
@@ -349,27 +338,26 @@ namespace Guppi_Memorise
 
                     standardText = SplitText(boundText); 
 
-                    bindWords(boundTextWords[0]);
+                    BindWords(boundTextWords[0]);
                     break;
                 case 5:
                     boundText = JoinExtracts(startText);
                     standardText = SplitText(boundText);
                     boundTextWords = JoinText(boundText);
-                    bindWords(boundTextWords[0]);
+                    BindWords(boundTextWords[0]);
                     break;
                 case 6:
                     boundText = startText;
                     standardText = SplitText(boundText);
                     boundTextWords = JoinText(boundText);
-                    bindWords(boundTextWords[0]);
+                    BindWords(boundTextWords[0]);
                     int averageWords = (timeArray[3].Seconds + timeArray[4].Seconds) / 4;
                     timer.Text = String.Format("{0:00}:{1:00}", averageWords / 60, averageWords % 60);
                     timer.IsVisible = true;
                     break;
             }
         }
-
-        private List<int> generateListOfRandomNumbers(int wordsCount)
+        private List<int> GenerateListOfRandomNumbers(int wordsCount)
         { //возвращает список рандомных уникальных чисел от 0 до размера строфы - это параметр функции, размер этого списка - рандомное число от 20% размера строфы до 75%
             int size = new Random().Next(wordsCount / 5 + 1, wordsCount / 4 * 3 + 1);
             List<int> list = new List<int>();
@@ -386,26 +374,23 @@ namespace Guppi_Memorise
             list.Sort();
             return list;
         }
-
-        private List<string> generateMissingWords(string extract)
+        private List<string> GenerateMissingWords(string extract)
         { //на основе списка рандомных чисел и переданной строфы генерирует список пропавших слов
             List<string> splittedExtract = extract.Split(' ', '\n').ToList();
             List<string> words = new List<string>();
-            missedWordsIndexes = generateListOfRandomNumbers(splittedExtract.Count);
+            missedWordsIndexes = GenerateListOfRandomNumbers(splittedExtract.Count);
             for (int i = 0; i < missedWordsIndexes.Count; ++i)
             {
                 words.Add(splittedExtract[missedWordsIndexes[i]]);
             }
             return words;
         }
-
-        private void bindExtract(List<string> extract)
+        private void BindExtract(List<string> extract)
         { //просто функция для перепривязки списков со строками к зонам ответов и правильных ответов
             BindableLayout.SetItemsSource(window, extract);
             BindableLayout.SetItemsSource(answers, ShuffleParts(extract));
         }
-
-        private void bindWords(string extract) 
+        private void BindWords(string extract) 
         { //вместо привязки проще добавить готовую строку с пропавшими словами в виде лабеля, к зоне ответов привязываем список с пропавшими словами
             window.Children.Clear();
             window.Children.Add(new Label()
@@ -417,11 +402,10 @@ namespace Guppi_Memorise
             });
             BindableLayout.SetItemsSource(answers, ShuffleParts(missedWords));
         }
-
         private string ReplaceMissingWords(string extract)
         { //лучший костыль времен и народов, у тебя наверняка появятся вопросы, почему я так сделал, так что пиши
             List<string> words = extract.Split(' ', '\n').ToList(); //ничего лучше не придумал: здесь передается в функцию полная строфа в виде цельной строки, она сплитится на слова
-            missedWords = generateMissingWords(extract); //генерация пропавших слов
+            missedWords = GenerateMissingWords(extract); //генерация пропавших слов
             for (int i = 0; i < missedWords.Count; ++i) 
             {
                 words[missedWordsIndexes[i]] = "______"; //заменяем слова на подчеркивания
@@ -453,7 +437,6 @@ namespace Guppi_Memorise
             }
             return String.Join("\n", result); //готовая строка с пропавшими словами
         }
-
         private List<List<string>> SplitText(List<List<string>> text)
         { //на вход - список списков строк стиха, на выходе - список списков отдельных слов
             List<List<string>> result = new List<List<string>>();
@@ -463,7 +446,6 @@ namespace Guppi_Memorise
             }
             return result;
         }
-
         private List<string> JoinText(List<List<string>> text)
         { //на вход - список списков строк, на выходе - список строф
             List<string> result = new List<string>();

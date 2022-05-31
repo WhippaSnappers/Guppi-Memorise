@@ -10,13 +10,14 @@ namespace Guppi_Memorise
     public partial class MemorisingStartPage : ContentPage
     {
         public static bool isLearned = false;
+        private static string dummyText = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.";
 
         public MemorisingStartPage()
         {
             isLearned = false;
             InitializeComponent();
 
-            editor.Text = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.";
+            editor.Text = dummyText;
         }
         private void ReadyButtonClicked(object sender, EventArgs _)
         {
@@ -31,21 +32,11 @@ namespace Guppi_Memorise
                     {
                         DisplayAlert("Ура", "Вы выучили этот текст! Если не можете его вспомнить, советуем запустить заучивание еще раз.", "Ок");
                         isLearned = false;
+                        editor.Text = dummyText;
                     }
                 };
                 Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
             });
-
-            /*var mp = new MemorisingPage(TextUtils.ParseUsersText(editor.Text));
-            mp.Disappearing += (__, ___) =>
-            {
-                if (isLearned) {
-                    DisplayAlert("Ура", "Вы выучили этот текст! Если не можете его вспомнить, советуем запустить заучивание еще раз.", "Ок");
-                    isLearned = false;
-                }   
-            };
-            Navigation.PushAsync(mp);
-            */
         }
         private void TextEditorCompleted(object sender, EventArgs _)
         {
@@ -58,9 +49,9 @@ namespace Guppi_Memorise
                 btn.IsEnabled = false;
             }
         }
-        private void OpenHistory(object sender, EventArgs _)
+        private async void OpenHistory(object sender, EventArgs _)
         {
-            Navigation.PushAsync(new MemorisingHistory());
+            await Navigation.PushAsync(new MemorisingHistory());
         }
     }
 }

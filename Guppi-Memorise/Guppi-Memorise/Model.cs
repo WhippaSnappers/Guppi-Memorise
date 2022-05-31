@@ -50,10 +50,6 @@ namespace Guppi_Memorise
             await db.CreateTableAsync<Text>();
             await db.CreateTableAsync<UserStats>();
         }
-        public static async Task DropTableDeck()
-        {
-            //await db.DeleteAllAsync<Deck>();
-        }
         public static async Task<List<Deck>> FetchDecks()
         {
             await Init();
@@ -109,6 +105,11 @@ namespace Guppi_Memorise
         {
             await Init();
             await db.InsertAsync(text);
+        }
+        public static async Task UpdateText(Text text)
+        {
+            await Init();
+            await db.UpdateAsync(text);
         }
         public static async Task<List<Text>> FetchTexts()
         {
