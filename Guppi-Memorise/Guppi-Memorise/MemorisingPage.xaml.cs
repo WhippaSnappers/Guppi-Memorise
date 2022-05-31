@@ -219,7 +219,7 @@ namespace Guppi_Memorise
                                     userText.Time = timeString;
                                     Task.Run(async () =>
                                     {
-                                        await DB.UpdateText(userText);
+                                        await DB.AddText(userText);
                                         Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
                                     });
                                 }

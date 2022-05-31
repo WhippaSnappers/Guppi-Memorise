@@ -21,22 +21,18 @@ namespace Guppi_Memorise
         }
         private void ReadyButtonClicked(object sender, EventArgs _)
         {
-            Text userText = new Text { Body = editor.Text, Time = "00:00:00" };
-            Task.Run(async () =>
+            Text userText = new Text { Body = editor.Text, Time = "--:--:--" };
+            var mp = new MemorisingPage(userText);
+            mp.Disappearing += (__, ___) =>
             {
-                await DB.AddText(userText);
-                var mp = new MemorisingPage(userText);
-                mp.Disappearing += (__, ___) =>
+                if (isLearned)
                 {
-                    if (isLearned)
-                    {
-                        DisplayAlert("Ура", "Вы выучили этот текст! Если не можете его вспомнить, советуем запустить заучивание еще раз.", "Ок");
-                        isLearned = false;
-                        editor.Text = dummyText;
-                    }
-                };
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
-            });
+                    DisplayAlert("Ура", "Вы выучили этот текст! Если не можете его вспомнить, советуем запустить заучивание еще раз.", "Ок");
+                    isLearned = false;
+                }
+                // editor.Text = dummyText;
+            };
+            Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
         }
         private void TextEditorCompleted(object sender, EventArgs _)
         {

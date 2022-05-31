@@ -60,7 +60,7 @@
                 </StackLayout>
             </ScrollView>
             <StackLayout HorizontalOptions="Fill" VerticalOptions="EndAndExpand" Margin="15, 15">
-                <Button x:Name="clear" Text="Очистить историю" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="ClearHistory" HeightRequest="60"/>
+                <Button x:Name="clear" IsEnabled="False" Text="Очистить историю" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" Clicked="ClearHistory" HeightRequest="60"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

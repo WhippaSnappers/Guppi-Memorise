@@ -24,7 +24,11 @@ namespace Guppi_Memorise
                 // await DB.AddDummyTexts();
                 var texts = await DB.FetchTexts();
                 this.texts = new ObservableCollection<Text>(texts);
-                Device.BeginInvokeOnMainThread(() => BindableLayout.SetItemsSource(layout, this.texts));
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    BindableLayout.SetItemsSource(layout, this.texts);
+                    clear.IsEnabled = this.texts.Count > 0;
+                });
             });
         }
         private void Repeat(object sender, EventArgs _)
@@ -38,18 +42,23 @@ namespace Guppi_Memorise
                 {
                     DisplayAlert("Ура", "Вы повторили свой успех! Если необходимо, можете попробовать еще раз.", "Ок");
                     MemorisingStartPage.isLearned = false;
+                    // Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
                 }
                 RefreshTextsCollection();
             };
             Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
-        }//ура костыль (really?)
+        }// ура костыль (really?)
 
         private void ClearHistory(object sender, EventArgs _)
         {
             Task.Run(async () =>
             {
                 await DB.PurgeTexts();
-                Device.BeginInvokeOnMainThread(() => texts.Clear());
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    texts.Clear();
+                    clear.IsEnabled = false;
+                });
             });
         }
     }
