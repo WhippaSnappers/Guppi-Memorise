@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,19 +33,18 @@ namespace Guppi_Memorise
         private TimeSpan memorisingTime;
         private DateTime memorisingTimeStart;
 
-        public MemorisingPage(List<List<string>> str)
+        public MemorisingPage(Text userText)
         {
             InitializeComponent();
-            startText = str;
-            boundText = str;
+            var parsedText = TextUtils.ParseUsersText(userText.Body);
+            startText = parsedText;
+            boundText = parsedText;
             missedWords = new List<string>();
             boundTextWords = JoinText(boundText);
             timeArray = new List<TimeSpan>(6);
             bindExtract(startText[currentExtract]);
-
             memorisingTimeStart = DateTime.Now;
         }
-
         private void OpenInfo(object sender, EventArgs _)
         {
             switch (level) {

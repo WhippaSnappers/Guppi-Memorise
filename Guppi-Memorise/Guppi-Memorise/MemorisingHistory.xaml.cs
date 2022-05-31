@@ -1,38 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Guppi_Memorise {
+namespace Guppi_Memorise
+{
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class MemorisingHistory : ContentPage
     {
-
-        struct historyElement { //для теста
-            public string time { get; set; }
-            public string text { get; set; }
-        }
-
+        private ObservableCollection<Text> texts;
         public MemorisingHistory()
         {
             InitializeComponent();
-            BindableLayout.SetItemsSource(layout, new ObservableCollection<historyElement>()
+
+            Task.Run(async () =>
             {
-                new historyElement { time = "00:12:33", text = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты."},
-                new historyElement { time = "01:24:48", text = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты."},
-                new historyElement { time = "51:53:24", text = "111111111111111111111111\nединчика!!!\n1111111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111\n1111111111111111111111111111111\n1111111111111 111111111111\n11111111111111111111111111\n1111111111111111111111111111\n1111111111111111111111\n1111111111111111111111\n1111111111 111111111111111111111111111\n11111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111111111111\n11111111111111 единичка11"}
+                // await DB.AddDummyTexts();
+                var texts = await DB.FetchTexts();
+                this.texts = new ObservableCollection<Text>(texts);
+                Device.BeginInvokeOnMainThread(() => BindableLayout.SetItemsSource(layout, this.texts));
             });
         }
-
-        private void Repeat(object sender, EventArgs e)
+        private void Repeat(object sender, EventArgs _)
         {
-            var mp = new MemorisingPage(MemorisingStartPage.ParseUsersText((((sender as Frame).Content as StackLayout).Children[0] as Label).Text));
+            int textId = int.Parse((sender as Frame).ClassId);
+            Text selectedText = texts.Single(t => t.Id == textId);
+            var mp = new MemorisingPage(selectedText);
             mp.Disappearing += (__, ___) =>
             {
                 if (MemorisingStartPage.isLearned)
@@ -41,12 +37,16 @@ namespace Guppi_Memorise {
                     MemorisingStartPage.isLearned = false;
                 }
             };
-            Navigation.PushAsync(mp);
-        }//ура костыль
+            Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
+        }//ура костыль (really?)
 
-        private void ClearHistory(object sender, EventArgs e)
+        private void ClearHistory(object sender, EventArgs _)
         {
-
+            Task.Run(async () =>
+            {
+                await DB.PurgeTexts();
+                Device.BeginInvokeOnMainThread(() => texts.Clear());
+            });
         }
     }
 }

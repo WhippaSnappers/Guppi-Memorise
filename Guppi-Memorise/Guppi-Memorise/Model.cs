@@ -47,10 +47,12 @@ namespace Guppi_Memorise
             db = new SQLiteAsyncConnection(dbPath);
             await db.CreateTableAsync<Card>();
             await db.CreateTableAsync<Deck>();
+            await db.CreateTableAsync<Text>();
+            await db.CreateTableAsync<UserStats>();
         }
         public static async Task DropTableDeck()
         {
-            await db.DeleteAllAsync<Deck>();
+            //await db.DeleteAllAsync<Deck>();
         }
         public static async Task<List<Deck>> FetchDecks()
         {
@@ -102,6 +104,29 @@ namespace Guppi_Memorise
         {
             await Init();
             await db.UpdateAsync(card);
+        }
+        public static async Task AddText(Text text)
+        {
+            await Init();
+            await db.InsertAsync(text);
+        }
+        public static async Task<List<Text>> FetchTexts()
+        {
+            await Init();
+            var texts = await db.Table<Text>().ToListAsync();
+            return texts;
+        }
+        public static async Task PurgeTexts()
+        {
+            await Init();
+            await db.DeleteAllAsync<Text>();
+        }
+        public static async Task AddDummyTexts()
+        {
+            await Init();
+            await db.InsertAsync(new Text { Body = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.", Time = "00:12:33" });
+            await db.InsertAsync(new Text { Body = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.", Time = "01:24:48" });
+            await db.InsertAsync(new Text { Body = "111111111111111111111111\nединчика!!!\n1111111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111\n1111111111111111111111111111111\n1111111111111 111111111111\n11111111111111111111111111\n1111111111111111111111111111\n1111111111111111111111\n1111111111111111111111\n1111111111 111111111111111111111111111\n11111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111111111111\n11111111111111 единичка11", Time = "51:53:24" });
         }
     }
 }

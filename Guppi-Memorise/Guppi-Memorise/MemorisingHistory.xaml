@@ -46,13 +46,13 @@
                 <StackLayout x:Name="layout" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Frame CornerRadius="5" BorderColor="#012545" HeightRequest="300" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Frame CornerRadius="5" BorderColor="#012545" HorizontalOptions="FillAndExpand" Padding="10" ClassId="{Binding Id}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Repeat" NumberOfTapsRequired="1"/>
                                 </Frame.GestureRecognizers>
                                 <StackLayout>
-                                    <Label Text="{Binding text}" FontSize="17" TextColor="#012545" FontFamily="Exo"/>
-                                    <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" Text="{Binding time, StringFormat='Выучено за {0}'}" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding Body}" FontSize="17" TextColor="#012545" FontFamily="Exo"/>
+                                    <Label FontSize="20" TextColor="#012545" FontFamily="Russo One" Text="{Binding Time, StringFormat='Выучено за {0}'}" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
