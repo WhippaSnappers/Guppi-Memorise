@@ -21,6 +21,9 @@
                 <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
                     В режиме заучивания текстов Вы будете динамически восстанавливать текст, пока не пройдете все уровни сложности. Вы можете либо добавить новый текст, либо выбрать текст из своей истории. Заучивать тексты с помощью режима динамического восстановления легче и продуктивнее.
                 </Label>
+                <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
+                    Также Вам доступен просмотр своей статистики.
+                </Label>
                 <Label FontSize="25" Padding="10, 0" TextColor="#012545" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" FontFamily="Exo">
                     Приятного заучивания!
                 </Label>
