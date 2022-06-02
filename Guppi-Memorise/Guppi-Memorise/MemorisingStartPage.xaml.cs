@@ -19,7 +19,7 @@ namespace Guppi_Memorise
 
             editor.Text = dummyText;
         }
-        private void ReadyButtonClicked(object sender, EventArgs _)
+        private async void ReadyButtonClicked(object sender, EventArgs _)
         {
             Text userText = new Text { Body = editor.Text, Time = "--:--:--" };
             var mp = new MemorisingPage(userText);
@@ -32,6 +32,7 @@ namespace Guppi_Memorise
                 }
                 // editor.Text = dummyText;
             };
+            await DB.IncreaseNumberOfTextsEntered();
             Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
         }
         private void TextEditorCompleted(object sender, EventArgs _)

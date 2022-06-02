@@ -1,5 +1,7 @@
 ﻿using SQLite;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -31,11 +33,12 @@ namespace Guppi_Memorise
     }
     public class UserStats
     {
-        public int DecksCreated { get; set; }
-        public int FlashCardsCreated { get; set; }
-        public int TextsEntered { get; set; }
-        public int TextsLearned { get; set; }
-        public string FastestLearningTime { get; set; }
+        // public int DecksCreated { get; set; }
+        // public int FlashCardsCreated { get; set; }
+        // public int TextsLearned { get; set; }
+        // Those are fetched from the DB
+        // public string FastestLearningTime { get; set; }
+        public int TextsEntered { get; set; } = 0;
     }
     public static class DB
     {
@@ -62,12 +65,30 @@ namespace Guppi_Memorise
             var query = await db.Table<Card>().Where(e => e.DeckId == deck.Id).ToListAsync();
             return query;
         }
-        public static async Task<int> CountCards(Deck deck)
+        public static async Task<int> CountCardsInDeck(Deck deck)
         {
             await Init();
             // Needs to be tested
-            var query = await db.Table<Card>().Where(e => e.DeckId == deck.Id).CountAsync();
-            return query;
+            var count = await db.Table<Card>().Where(e => e.DeckId == deck.Id).CountAsync();
+            return count;
+        }
+        public static async Task<int> CountCardsTotal()
+        {
+            await Init();
+            var count = await db.Table<Card>().CountAsync();
+            return count;
+        }
+        public static async Task<int> CountDecksTotal()
+        {
+            await Init();
+            var count = await db.Table<Deck>().CountAsync();
+            return count;
+        }
+        public static async Task<int> CountTextsTotal()
+        {
+            await Init();
+            var count = await db.Table<Text>().CountAsync();
+            return count;
         }
         public static async Task AddDeck(Deck deck)
         {
@@ -117,10 +138,27 @@ namespace Guppi_Memorise
             var texts = await db.Table<Text>().ToListAsync();
             return texts;
         }
+        public static async Task PurgeDecks()
+        {
+            await Init();
+            await db.DeleteAllAsync<Deck>();
+        }
+        public static async Task PurgeCards()
+        {
+            await Init();
+            await db.DeleteAllAsync<Card>();
+        }
         public static async Task PurgeTexts()
         {
             await Init();
             await db.DeleteAllAsync<Text>();
+        }
+        public static async Task PurgeInitUserStats()
+        {
+            await Init();
+            await db.DeleteAllAsync<UserStats>();
+            var cleanUserStats = new UserStats();
+            await db.InsertAsync(cleanUserStats);
         }
         public static async Task AddDummyTexts()
         {
@@ -128,6 +166,63 @@ namespace Guppi_Memorise
             await db.InsertAsync(new Text { Body = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.", Time = "00:12:33" });
             await db.InsertAsync(new Text { Body = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.", Time = "01:24:48" });
             await db.InsertAsync(new Text { Body = "111111111111111111111111\nединчика!!!\n1111111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111\n1111111111111111111111111111111\n1111111111111 111111111111\n11111111111111111111111111\n1111111111111111111111111111\n1111111111111111111111\n1111111111111111111111\n1111111111 111111111111111111111111111\n11111111111111111111111111111111111111111111\n1111111111111111111111111111111111111111111111111111111111\n11111111111111 единичка11", Time = "51:53:24" });
+        }
+        public static async Task<string> FetchMinimalLearningTime()
+        {
+            await Init();
+            string curTime = "--:--:--";
+            var texts = await db.Table<Text>().ToListAsync();
+            if (texts.Count == 0)
+            {
+                return curTime;
+            }
+            else
+            {
+                TimeSpan minTimeSpan = TimeSpan.Parse(texts[0].Time);
+                foreach (var text in texts)
+                {
+                    TimeSpan curTimeSpan = TimeSpan.Parse(text.Time);
+                    if (curTimeSpan < minTimeSpan)
+                    {
+                        minTimeSpan = curTimeSpan;
+                    }
+                }
+                curTime = string.Format("{0:00}:{1:00}:{2:00}", minTimeSpan.Hours, minTimeSpan.Minutes, minTimeSpan.Seconds);
+                return curTime;
+            }
+        }
+        public static async Task<int> FetchNumberOfTextsEntered()
+        {
+            await Init();
+            var userStats = await db.Table<UserStats>().FirstAsync();
+            if (userStats == null)
+            {
+                await PurgeInitUserStats();
+                userStats = await db.Table<UserStats>().FirstAsync();
+            }
+            int number = userStats.TextsEntered;
+            return number;
+        }
+        public static async Task IncreaseNumberOfTextsEntered()
+        {
+            await Init();
+            var userStats = await db.Table<UserStats>().FirstAsync();
+            if (userStats == null)
+            {
+                await PurgeInitUserStats();
+                userStats = await db.Table<UserStats>().FirstAsync();
+            };
+            userStats.TextsEntered++;
+            await db.DeleteAllAsync<UserStats>();
+            await db.InsertAsync(userStats);
+        }
+        public static async Task PurgeUserData()
+        {
+            await Init();
+            await PurgeDecks();
+            await PurgeCards();
+            await PurgeTexts();
+            await PurgeInitUserStats();
         }
     }
 }

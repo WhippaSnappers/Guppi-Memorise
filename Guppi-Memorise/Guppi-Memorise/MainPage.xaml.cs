@@ -5,6 +5,10 @@ namespace Guppi_Memorise
 {
     public partial class MainPage : ContentPage
     {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
         public async void FlashCardsButton(object _, EventArgs __)
         {
             await Navigation.PushAsync(new FlashCardsPage());
@@ -28,10 +32,6 @@ namespace Guppi_Memorise
         public async void AboutUsButton(object _, EventArgs __)
         {
             await Navigation.PushAsync(new AboutUs());
-        }
-        public MainPage()
-        {
-            InitializeComponent();
         }
     }
 }

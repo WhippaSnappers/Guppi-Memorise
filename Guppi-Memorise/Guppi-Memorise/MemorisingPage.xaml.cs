@@ -213,6 +213,7 @@ namespace Guppi_Memorise
                                 }
                                 else
                                 { //если последний левел, то выкидываем юзера со страницы, там через disappearing вызывается информационное окно с похвалой
+                                    // Learning Over
                                     MemorisingStartPage.isLearned = true;
                                     memorisingTime = DateTime.Now - memorisingTimeStart;
                                     var timeString = string.Format("{0:00}:{1:00}:{2:00}", memorisingTime.Hours, memorisingTime.Minutes, memorisingTime.Seconds);
