@@ -6,6 +6,8 @@
             <item name="color">@color/accColor</item>
     </style>
 
+	<style name="MainTheme.Base" parent="Theme.AppCompat.Light.NoActionBar"/>
+
 	<style name="MainTheme" parent="MainTheme.Base">
 		<item name="colorPrimary">@color/nbColor</item>
 		<item name="android:textColorPrimary">@color/accColor</item>
