@@ -36,8 +36,8 @@ namespace Guppi_Memorise
         // public int DecksCreated { get; set; }
         // public int FlashCardsCreated { get; set; }
         // public int TextsLearned { get; set; }
-        // Those are fetched from the DB
         // public string FastestLearningTime { get; set; }
+        // Those are fetched from the DB
         public int TextsEntered { get; set; } = 0;
     }
     public static class DB
@@ -194,11 +194,11 @@ namespace Guppi_Memorise
         public static async Task<int> FetchNumberOfTextsEntered()
         {
             await Init();
-            var userStats = await db.Table<UserStats>().FirstAsync();
+            var userStats = await db.Table<UserStats>().FirstOrDefaultAsync();
             if (userStats == null)
             {
                 await PurgeInitUserStats();
-                userStats = await db.Table<UserStats>().FirstAsync();
+                userStats = await db.Table<UserStats>().FirstOrDefaultAsync();
             }
             int number = userStats.TextsEntered;
             return number;
@@ -206,12 +206,12 @@ namespace Guppi_Memorise
         public static async Task IncreaseNumberOfTextsEntered()
         {
             await Init();
-            var userStats = await db.Table<UserStats>().FirstAsync();
-            if (userStats == null)
+            var userStats = await db.Table<UserStats>().FirstOrDefaultAsync();
+            if (userStats is null)
             {
                 await PurgeInitUserStats();
-                userStats = await db.Table<UserStats>().FirstAsync();
-            };
+                userStats = await db.Table<UserStats>().FirstOrDefaultAsync();
+            }
             userStats.TextsEntered++;
             await db.DeleteAllAsync<UserStats>();
             await db.InsertAsync(userStats);

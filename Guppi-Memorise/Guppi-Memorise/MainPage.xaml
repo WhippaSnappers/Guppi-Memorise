@@ -68,7 +68,7 @@
                 </ImageButton.Background>
             </ImageButton>
             <StackLayout Margin="0, 10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
-                <Button Text="О нас" Font="Russo One" TextTransform="None" FontSize="20" HeightRequest="50" IsEnabled="True" CornerRadius="5" Clicked="AboutUsButton">
+                <Button TextColor="#012545" Text="О нас" Font="Russo One" TextTransform="None" FontSize="20" HeightRequest="50" IsEnabled="True" CornerRadius="5" Clicked="AboutUsButton">
                     <Button.BackgroundColor>
                         <!-- Necessary crutch -->
                         <Color>White</Color>
