@@ -66,7 +66,7 @@
                         </StackLayout>
                     </ScrollView>
                 </Frame>
-                <ScrollView VerticalScrollBarVisibility="Never" Padding="10" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="3">
+                <ScrollView VerticalScrollBarVisibility="Never" Padding="0" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="3">
                     <FlexLayout x:Name="answers" AlignContent="Start" HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
