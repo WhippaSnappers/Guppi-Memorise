@@ -36,7 +36,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Grid Padding="15">
+            <Grid Padding="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="3*"/>
@@ -56,7 +56,7 @@
                     <Label Text="Заново" FontSize="13" VerticalOptions="Center"/>
                 </StackLayout>
                 <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="2">
-                    <ScrollView VerticalScrollBarVisibility="Always" Padding="10">
+                    <ScrollView VerticalScrollBarVisibility="Never" Padding="10">
                         <StackLayout x:Name="window">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
@@ -66,7 +66,7 @@
                         </StackLayout>
                     </ScrollView>
                 </Frame>
-                <ScrollView VerticalScrollBarVisibility="Always" Padding="10" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="3">
+                <ScrollView VerticalScrollBarVisibility="Never" Padding="10" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="3">
                     <FlexLayout x:Name="answers" AlignContent="Start" HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
