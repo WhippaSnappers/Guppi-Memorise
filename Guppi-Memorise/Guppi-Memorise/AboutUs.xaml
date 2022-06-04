@@ -10,7 +10,7 @@
         <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Арсений Коневец</Label>
         <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Павел Черевач</Label>
         <Label Padding="20, 0, 0, 0" FontFamily="Exo" FontSize="30" TextColor="#012545" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">• Владимир Гребенников</Label>
-        <Label Margin="20" FontFamily="Russo One" FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand">КоЧеГреб ©</Label>
+        <Label Margin="20" FontFamily="Russo One" FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand">ГрусTeam ©</Label>
         <Label x:Name="easterEgg" Opacity="0" FontFamily="Lobster" FontSize="25" TextColor="#012545" HorizontalOptions="CenterAndExpand">А э ы ы каабука ы ы а вёб</Label>
     </StackLayout>
 </ContentPage>
