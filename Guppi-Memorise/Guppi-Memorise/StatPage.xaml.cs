@@ -49,7 +49,7 @@ namespace Guppi_Memorise
             switch (res)
             {
                 case "Ок":
-                    Task.Run(async () => await DB.PurgeUserData());
+                    await DB.PurgeUserData();
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         decksCreated.Text = "0";
