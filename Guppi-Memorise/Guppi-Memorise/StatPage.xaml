@@ -76,8 +76,8 @@
             <Label Grid.Row="6" Grid.Column="0" Text="Выучить текстов:" VerticalTextAlignment="Center"/>
             <Label x:Name="textsLearned" Grid.Row="6" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
             <BoxView Grid.Row="7" Grid.ColumnSpan="2" BackgroundColor="#012545" CornerRadius="2"/>
-            <Label Grid.Row="8" Grid.Column="0" Text="Выучить текст всего за" VerticalTextAlignment="Center"/>
-            <Label x:Name="minimalLearningTime" FontSize="20" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="8" Grid.Column="0" FontSize="21" Text="Выучить текст всего за" VerticalTextAlignment="Center"/>
+            <Label x:Name="minimalLearningTime" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
         </Grid>
         <Button x:Name="clear" Clicked="ClearStats" IsEnabled="True" Text="Очистить статистику" CornerRadius="5" FontFamily="Russo One" FontSize="20" HorizontalOptions="Fill" HeightRequest="60"/>
     </StackLayout>
