@@ -175,8 +175,6 @@ namespace Guppi_Memorise
                             {
                                 timeArray.Add(DateTime.Now.Subtract(startTime));
 
-                                await DisplayAlert("Так держать!", "Вы справились с этим упражнением! Чтобы перейти на следующий уровень, повторите свой успех!", "Ок");
-
                                 currentExtract = 0;
 
                                 if (level <= 3)
@@ -187,7 +185,6 @@ namespace Guppi_Memorise
                                 {
                                     BindWords(boundTextWords[currentExtract]);
                                 }
-
 
                                 doneCounter.Text = $"Верно: {++done} / 2";
                                 again.IsEnabled = false;
@@ -200,6 +197,8 @@ namespace Guppi_Memorise
                                     }
                                     timer.Text = String.Format("{0:00}:{1:00}", average / 60, average % 60);
                                 }
+
+                                await DisplayAlert("Так держать!", "Вы справились с этим упражнением! Чтобы перейти на следующий уровень, повторите свой успех!", "Ок");
                             }
                             else
                             {

@@ -47,7 +47,7 @@ namespace Guppi_Memorise
                 RefreshTextsCollection();
             };
             Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(mp));
-        }// ура костыль (really?)
+        }// ура костыль (really?) закрой рот, не с тобой разговариваю
 
         private void ClearHistory(object sender, EventArgs _)
         {

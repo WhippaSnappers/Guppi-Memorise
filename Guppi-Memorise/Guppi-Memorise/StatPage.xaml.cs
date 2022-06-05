@@ -45,20 +45,17 @@ namespace Guppi_Memorise
 
         private async void ClearStats(object _, EventArgs __)
         {
-            string res = await DisplayActionSheet("Будут удалены карточки, колоды, тексты", "Ок", "Отмена");
-            switch (res)
-            {
-                case "Ок":
-                    await DB.PurgeUserData();
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        decksCreated.Text = "0";
-                        cardsCreated.Text = "0";
-                        textsEntered.Text = "0";
-                        textsLearned.Text = "0";
-                        minimalLearningTime.Text = "--:--:--";
-                    });
-                    break;
+            bool res = await DisplayAlert("Вы уверены?", "Будут удалены все ваши колоды и карточки, а также очищена история текстов.", "Ок", "Отмена");
+            if (res) {
+                await DB.PurgeUserData();
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    decksCreated.Text = "0";
+                    cardsCreated.Text = "0";
+                    textsEntered.Text = "0";
+                    textsLearned.Text = "0";
+                    minimalLearningTime.Text = "--:--:--";
+                });
             }
         }
     }
