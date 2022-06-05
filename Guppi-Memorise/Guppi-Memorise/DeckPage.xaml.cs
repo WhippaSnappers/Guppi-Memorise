@@ -63,7 +63,7 @@ namespace Guppi_Memorise
             if (!isRenaming)
             {
                 Card tappedCard = cards.Where(i => i.Id == Int32.Parse(cardFrame.ClassId)).FirstOrDefault();
-                string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать", "Изменить текст");
+                string res = await DisplayActionSheet("Выберите действие", "Отмена", "Удалить", "Переименовать", "Изменить текст");
                 switch (res)
                 {
                     case "Удалить":

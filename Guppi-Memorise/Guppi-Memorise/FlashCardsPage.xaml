@@ -31,7 +31,7 @@
             <FlexLayout x:Name="layout" Wrap="Wrap" AlignItems="Center" AlignContent="SpaceBetween">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding Id}">
+                        <Frame HasShadow="False" CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding Id}">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DeckTapped"/>
                                 <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="DeckDoubleTapped"/>

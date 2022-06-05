@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Guppi_Memorise.MemorisingStartPage"
-             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise">
+             xmlns:local="clr-namespace:Guppi_Memorise;assembly=Guppi-Memorise"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="CornerRadius" Value="5"/>
@@ -50,7 +51,7 @@
     <ContentPage.Content>
         <FlexLayout Direction="Column" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" AlignContent="Center" JustifyContent="Center" Padding="15">
             <Label Text="Напишите или вставьте текст" FontSize="22" FontFamily="Russo One" TextColor="#012545" HorizontalTextAlignment="Center"/>
-            <Frame BorderColor="#012545" CornerRadius="5" HeightRequest="300" BackgroundColor="#f0f0f0" Padding="10" Margin="0, 15">
+            <Frame BorderColor="#012545" CornerRadius="5" HeightRequest="300" BackgroundColor="#f0f0f0" Padding="10" Margin="0, 15" HasShadow="False">
                 <Editor x:Name="editor" HorizontalOptions="Fill" VerticalOptions="Fill" FontSize="17" FontFamily="Exo" TextColor="#012545" Completed="TextEditorCompleted"/>
             </Frame>
             <Button x:Name="btn" Text="Готово!" Clicked="ReadyButtonClicked"/>

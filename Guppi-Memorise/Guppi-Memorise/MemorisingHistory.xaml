@@ -46,7 +46,7 @@
                 <StackLayout x:Name="layout" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Frame CornerRadius="5" BorderColor="#012545" HorizontalOptions="FillAndExpand" Padding="10" ClassId="{Binding Id}">
+                            <Frame HasShadow="False" CornerRadius="5" BorderColor="#012545" HorizontalOptions="FillAndExpand" Padding="10" ClassId="{Binding Id}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Repeat" NumberOfTapsRequired="1"/>
                                 </Frame.GestureRecognizers>

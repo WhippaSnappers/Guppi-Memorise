@@ -49,7 +49,7 @@
                 <StackLayout x:Name="layout" Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Frame CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" ClassId="{Binding Id}">
+                            <Frame HasShadow="False" CornerRadius="5" HeightRequest="200" HorizontalOptions="FillAndExpand" ClassId="{Binding Id}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CardTapped"/>
                                     <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="CardDoubleTapped"/>

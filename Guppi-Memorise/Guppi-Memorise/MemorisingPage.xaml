@@ -55,7 +55,7 @@
                     <ImageButton x:Name="again" Source="{local:ImageResource Guppi-Memorise.Assets.againIcon.png}" BackgroundColor="Transparent" HeightRequest="40" Clicked="Again" IsEnabled="False"/>
                     <Label Text="Заново" FontSize="13" VerticalOptions="Center"/>
                 </StackLayout>
-                <Frame Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="2">
+                <Frame HasShadow="False" Background="#f0f0f0" BorderColor="#012545" CornerRadius="8" Padding="12" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="3" Grid.Row="2">
                     <ScrollView VerticalScrollBarVisibility="Never" Padding="10">
                         <StackLayout x:Name="window">
                             <BindableLayout.ItemTemplate>
@@ -70,7 +70,7 @@
                     <FlexLayout x:Name="answers" AlignContent="Start" HorizontalOptions="FillAndExpand" Direction="Row" Wrap="Wrap" AlignItems="Start">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Frame BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
+                                <Frame HasShadow="False" BorderColor="#012545" CornerRadius="8" Padding="10, 6, 10, 10" FlexLayout.Basis="100%" Margin="0, 5">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="PartTapped" NumberOfTapsRequired="1"/>
                                     </Frame.GestureRecognizers>
