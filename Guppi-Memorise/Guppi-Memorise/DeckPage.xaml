@@ -64,7 +64,7 @@
                                     <Label Text="{Binding Rating, StringFormat='{0:+#;-#;+0}'}" FontSize="15" TextColor="#012545" FontFamily="Exo" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize"/>
                                     <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="14, 0">
                                         <Label Text="{Binding Title}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Text="{Binding Title}" MaxLength="200" IsVisible="False" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="TitleEditorCompleted"/>
+                                        <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#012545" Placeholder="{Binding Title}" MaxLength="200" IsVisible="False" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="TitleEditorCompleted"/>
                                         <ScrollView IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Text}" FontSize="20" TextColor="#012545" FontFamily="Exo" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                         </ScrollView>

@@ -59,7 +59,10 @@ namespace Guppi_Memorise
             var absLayout = cardFrame.Content as AbsoluteLayout;
             var stkLayout = absLayout.Children[1] as StackLayout;
             var titleLabel = stkLayout.Children[0] as Label;
-            
+            var titleEditor = stkLayout.Children[1] as Editor;
+            var textEditor = (stkLayout.Children[3] as ScrollView).Content as Editor;
+
+
             if (!isRenaming)
             {
                 Card tappedCard = cards.Where(i => i.Id == Int32.Parse(cardFrame.ClassId)).FirstOrDefault();
@@ -84,6 +87,8 @@ namespace Guppi_Memorise
                             CardTapped(sender, EventArgs.Empty);
                         }
                         isRenaming = true;
+                        titleEditor.Placeholder = titleLabel.Text;
+                        titleEditor.Text = "";
                         var cardView = sender as Frame;
                         RenameCardToggle(cardView);
                         break;
