@@ -28,7 +28,7 @@
     
     <ContentPage.Content>
         <ScrollView Padding="5, 5">
-            <FlexLayout x:Name="layout" Wrap="Wrap" AlignItems="Center" AlignContent="SpaceBetween">
+            <FlexLayout x:Name="layout" Wrap="Wrap" AlignItems="Center" AlignContent="Start">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Frame HasShadow="False" CornerRadius="5" Style="{StaticResource flexElements}" ClassId="{Binding Id}">
@@ -44,7 +44,7 @@
                             </Frame.Background>
                             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Label Text="{Binding Name}" ClassId="{Binding Id}" FontSize="20" TextColor="#012545" FontFamily="Russo One" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
-                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" MaxLength="20" TextColor="#012545" Text="{Binding Name}" ClassId="{Binding Id}" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="NameEditorCompleted"/>
+                                <Editor FontFamily="Russo One" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" MaxLength="20" TextColor="#012545" Placeholder="{Binding Name}" ClassId="{Binding Id}" IsVisible="false" BackgroundColor="Transparent" AutoSize="TextChanges" Completed="NameEditorCompleted"/>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

@@ -17,6 +17,7 @@ namespace Guppi_Memorise
         private List<Card> cards;
         private List<bool> cardsRated;
         private int selectedIndex;
+        private bool isShown;
 
         public SelfControlPage(ObservableCollection<Card> cards)
         {
@@ -27,6 +28,7 @@ namespace Guppi_Memorise
             var rand = new Random();
             this.cards = this.cards.OrderBy(x => rand.Next()).ToList();
             selectedIndex = 0;
+            isShown = false;
             SetCard(0);
             ToggleBtns();
         }
@@ -51,12 +53,18 @@ namespace Guppi_Memorise
             var slChildren = ((sender as Frame).Content as StackLayout).Children;
             slChildren[0].IsVisible = !slChildren[0].IsVisible;
             slChildren[1].IsVisible = !slChildren[1].IsVisible;
+            isShown = !isShown;
         }
         private void SetCard(int index)
         {
             var slChildren = (frame.Content as StackLayout).Children;
             (slChildren[0] as Label).Text = cards[index].Title;
             ((slChildren[1] as ScrollView).Content as Label).Text = cards[index].Text;
+            if (isShown) {
+                slChildren[0].IsVisible = !slChildren[0].IsVisible;
+                slChildren[1].IsVisible = !slChildren[1].IsVisible;
+                isShown = !isShown;
+            }
             ToggleRatingBtns(!cardsRated[index]);
         }
         private void ToggleBtns()

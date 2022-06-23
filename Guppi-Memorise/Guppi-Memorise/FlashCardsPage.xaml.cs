@@ -33,6 +33,8 @@ namespace Guppi_Memorise
             var stkLayout = (sender as Frame).Content as StackLayout;
             (stkLayout.Children[0] as Label).IsVisible = false;
             (stkLayout.Children[1] as Editor).IsVisible = true;
+            (stkLayout.Children[1] as Editor).Placeholder = (stkLayout.Children[0] as Label).Text;
+            (stkLayout.Children[1] as Editor).Text = "";
             (stkLayout.Children[1] as Editor).Focus();
         }
         private void RemoveDeck(Deck deck)
@@ -44,8 +46,8 @@ namespace Guppi_Memorise
         {
             if (!isRenaming) {
                 if (!isClicked) {
-                    Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
                     isClicked = true;
+                    Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
                     Navigation.PushAsync(new DeckPage(tappedDeck));
                     isClicked = false;
                 }
@@ -62,6 +64,8 @@ namespace Guppi_Memorise
                     {
                         decks.Insert(0, newDeck);
                         var deck = layout.Children[0];
+                        //var children = ((deck as Frame).Content as StackLayout).Children;
+                        //(children[0] as Label).SetBinding(Label.TextProperty, new Binding { Source = children[1] as Editor, Path = "Text"});
                         RenameDeck(deck);
                     });
                 });
@@ -71,7 +75,7 @@ namespace Guppi_Memorise
         {
             if (!isRenaming) {
                 Deck tappedDeck = decks.Where(i => i.Id == Int32.Parse((sender as Frame).ClassId)).FirstOrDefault();
-                string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Удалить", "Переименовать");
+                string res = await DisplayActionSheet("Выберите действие", "Отмена", "", "Переименовать", "Удалить");
                 switch (res) {
                     case "Удалить": 
                         RemoveDeck(tappedDeck);
@@ -85,34 +89,30 @@ namespace Guppi_Memorise
         private void NameEditorCompleted(object sender, EventArgs _)
         {
             var stkLayout = (sender as Editor).Parent as StackLayout;
-            if (string.IsNullOrWhiteSpace((sender as Editor).Text))
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    (sender as Editor).Text = (stkLayout.Children[0] as Label).Text;
-                    (stkLayout.Children[0] as Label).IsVisible = true;
-                    (stkLayout.Children[1] as Editor).IsVisible = false;
-                    isRenaming = false;
-                });
+            string idRaw = (sender as Editor).ClassId;
+            int id = Int32.Parse(idRaw);
+            Deck curDeck = decks.Where(i => i.Id == id).FirstOrDefault();
+            int curDeckIndex = decks.IndexOf(curDeck);
+            string newName = (sender as Editor).Text;
+
+            if (string.IsNullOrWhiteSpace((sender as Editor).Text) || (sender as Editor).Text.Contains("\n")) {
+                //if ((stkLayout.Children[0] as Label).Text == "") {
+                //    newName = "Новая колода";
+                //}
+                //else {
+                    newName = (stkLayout.Children[0] as Label).Text;
+                //}
             }
-            else
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    string idRaw = (sender as Editor).ClassId;
-                    int id = Int32.Parse(idRaw);
-                    string newName = (sender as Editor).Text;
-                    Deck curDeck = decks.Where(i => i.Id == id).FirstOrDefault();
-                    int curDeckIndex = decks.IndexOf(curDeck);
-                    decks[curDeckIndex].Name = newName;
-                    curDeck.Name = newName;
-                    Task.Run(async () => await DB.UpdateDeck(curDeck));
-                    (stkLayout.Children[0] as Label).Text = newName;
-                    (stkLayout.Children[0] as Label).IsVisible = true;
-                    (stkLayout.Children[1] as Editor).IsVisible = false;
-                    isRenaming = false;
-                });
-            }
+
+            Device.BeginInvokeOnMainThread(() => {
+                decks[curDeckIndex].Name = newName;
+                curDeck.Name = newName;
+                Task.Run(async () => await DB.UpdateDeck(curDeck));
+                (stkLayout.Children[0] as Label).Text = newName;
+                (stkLayout.Children[0] as Label).IsVisible = true;
+                (stkLayout.Children[1] as Editor).IsVisible = false;
+                isRenaming = false;
+            });
         }
     }
 }
